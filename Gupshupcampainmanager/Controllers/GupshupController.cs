@@ -1,5 +1,6 @@
 ﻿using Gupshupcampainmanager.Models;
 using Gupshupcampainmanager.Service;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Gupshupcampainmanager.Controllers
@@ -10,12 +11,12 @@ namespace Gupshupcampainmanager.Controllers
         private readonly GupshupApiService _gupshupApiService;
         private readonly ILogger<GupshupController> _logger;
         private readonly IConfiguration _configuration;
+        private readonly IWebHostEnvironment _webHostEnvironment;
 
-        public GupshupController()
+        public GupshupController(IWebHostEnvironment webHostEnvironment)
         {
+            _webHostEnvironment = webHostEnvironment;
         }
-
-
 
         public IActionResult Index()
         {
@@ -89,8 +90,7 @@ namespace Gupshupcampainmanager.Controllers
 
                 //string imageHandleId = await _gupshupApiService.UploadImageToGupshup(partnerAppToken, appId, imageFile);
 
-
-                //string result = await _gupshupApiService.SendWhatsAppMessage("", "", "", "", "", "", Description);
+                string result = await _gupshupApiService.SendWhatsAppMessage("", "", "", "", "", "", Description,"");
 
                 ViewBag.ResponseMessage = "Message sent successfully! ";
                 ViewBag.AlertClass = "alert-success";
@@ -102,6 +102,85 @@ namespace Gupshupcampainmanager.Controllers
             }
 
             return View();
+        }
+
+
+        public IActionResult SaveCampaineTemplate()
+        {
+            ViewData["Title"] = "Save Campaine Details";
+            return View();
+        }
+
+
+        [HttpPost]
+        public async Task<IActionResult> SaveCampaineTemplate(IFormFile imageFile, string Description)
+        {
+            ViewData["Title"] = "Save Campaine Details";
+
+            try
+            {
+                if (imageFile == null || imageFile.Length == 0)
+                {
+                    ViewBag.ResponseMessage = "Please upload an image.";
+                    ViewBag.AlertClass = "alert-danger";
+                    return View("Index");
+                }
+
+                if (imageFile.Length > 5 * 1024 * 1024)
+                {
+                    ViewBag.ResponseMessage = "Image size exceeds 5MB limit.";
+                    ViewBag.AlertClass = "alert-danger";
+                    return View("Index");
+                }
+
+                if (string.IsNullOrWhiteSpace(Description))
+                {
+                    ViewBag.ResponseMessage = "Description is required.";
+                    ViewBag.AlertClass = "alert-danger";
+                    return View("Index");
+                }
+
+          
+                var allowedExtensions = new[] { ".png", ".jpg", ".jpeg" };
+                var extension = Path.GetExtension(imageFile.FileName).ToLowerInvariant();
+                if (!allowedExtensions.Contains(extension))
+                {
+                    ViewBag.ResponseMessage = "Only PNG or JPG images are supported.";
+                    ViewBag.AlertClass = "alert-danger";
+                    return View("Index");
+                }
+
+              
+                string uploadsFolder = Path.Combine(_webHostEnvironment.WebRootPath, "uploads");
+                if (!Directory.Exists(uploadsFolder))
+                {
+                    Directory.CreateDirectory(uploadsFolder);
+                }
+
+           
+                string uniqueFileName = Guid.NewGuid().ToString() + extension;
+                string filePath = Path.Combine(uploadsFolder, uniqueFileName);
+
+              
+                using (var fileStream = new FileStream(filePath, FileMode.Create))
+                {
+                    await imageFile.CopyToAsync(fileStream);
+                }
+
+              
+                string relativeImagePath = $"/uploads/{uniqueFileName}";
+
+             
+                ViewBag.ResponseMessage = $"Image saved successfully at {relativeImagePath} and message with description '{Description}' prepared for sending.";
+                ViewBag.AlertClass = "alert-success";
+            }
+            catch (Exception ex)
+            {
+                ViewBag.ResponseMessage = $"An error occurred: {ex.Message}";
+                ViewBag.AlertClass = "alert-danger";
+            }
+
+            return View("Index");
         }
     }
 }
