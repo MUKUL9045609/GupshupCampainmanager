@@ -200,3 +200,4 @@ C:\CampainManagerProject\Gupshupcampainmanager\obj\Debug\net9.0\refint\Gupshupca
 C:\CampainManagerProject\Gupshupcampainmanager\obj\Debug\net9.0\Gupshupcampainmanager.pdb
 C:\CampainManagerProject\Gupshupcampainmanager\obj\Debug\net9.0\Gupshupcampainmanager.genruntimeconfig.cache
 C:\CampainManagerProject\Gupshupcampainmanager\obj\Debug\net9.0\ref\Gupshupcampainmanager.dll
+C:\CampainManagerProject\Gupshupcampainmanager\obj\Debug\net9.0\Gupshupcampainmanager.sourcelink.json
