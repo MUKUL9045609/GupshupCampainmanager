@@ -5,10 +5,11 @@ using System.Net.Http.Headers;
 using System.Text;
 using System.Net.Http;
 using Gupshupcampainmanager.Helpers;
+using Gupshupcampainmanager.Repository.Interface;
 
 namespace Gupshupcampainmanager.Service
 {
-    public class GupshupApiService
+    public class GupshupApiService : IGupshupApiService
     {
         private static readonly HttpClient client = new HttpClient();
 
@@ -120,5 +121,6 @@ namespace Gupshupcampainmanager.Service
             }
             return dict;
         }
+
     }
 }

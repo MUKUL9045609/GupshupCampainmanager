@@ -1,5 +1,7 @@
 ﻿using Gupshupcampainmanager.Models;
+using Gupshupcampainmanager.Repository.Interface;
 using Gupshupcampainmanager.Service;
+using Microsoft.AspNetCore.DataProtection.KeyManagement;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 
@@ -8,14 +10,15 @@ namespace Gupshupcampainmanager.Controllers
     public class GupshupController : Controller
     {
 
-        private readonly GupshupApiService _gupshupApiService;
+        private readonly IGupshupApiService _gupshupApiService;
         private readonly ILogger<GupshupController> _logger;
         private readonly IConfiguration _configuration;
         private readonly IWebHostEnvironment _webHostEnvironment;
 
-        public GupshupController(IWebHostEnvironment webHostEnvironment)
+        public GupshupController(IWebHostEnvironment webHostEnvironment , IGupshupApiService gupshupApiService)
         {
             _webHostEnvironment = webHostEnvironment;
+            _gupshupApiService = gupshupApiService;
         }
 
         public IActionResult Index()
@@ -90,7 +93,7 @@ namespace Gupshupcampainmanager.Controllers
 
                 //string imageHandleId = await _gupshupApiService.UploadImageToGupshup(partnerAppToken, appId, imageFile);
 
-                string result = await _gupshupApiService.SendWhatsAppMessage("", "", "", "", "", "", Description,"");
+                string result = await _gupshupApiService.SendWhatsAppMessage("","","", "", "", "","",""); ;
 
                 ViewBag.ResponseMessage = "Message sent successfully! ";
                 ViewBag.AlertClass = "alert-success";
@@ -105,17 +108,17 @@ namespace Gupshupcampainmanager.Controllers
         }
 
 
-        public IActionResult SaveCampaineTemplate()
+        public IActionResult SaveCampaignTemplate()
         {
-            ViewData["Title"] = "Save Campaine Details";
+            ViewData["Title"] = "Save campaign Details";
             return View();
         }
 
 
         [HttpPost]
-        public async Task<IActionResult> SaveCampaineTemplate(IFormFile imageFile, string Description)
+        public async Task<IActionResult> SaveCampaignTemplate(IFormFile imageFile, string Description)
         {
-            ViewData["Title"] = "Save Campaine Details";
+            ViewData["Title"] = "Save campaign Details";
 
             try
             {
@@ -180,7 +183,7 @@ namespace Gupshupcampainmanager.Controllers
                 ViewBag.AlertClass = "alert-danger";
             }
 
-            return View("Index");
+            return View("SaveCampaignTemplate");
         }
     }
 }

@@ -257,8 +257,20 @@
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.slim.min.map"
     },
     {
-      "Id": "C:\\CampainManagerProject\\Gupshupcampainmanager\\wwwroot\\uploads\\18b2fff3-022b-4289-80b2-7b82a38de59d.png",
-      "PackagePath": "staticwebassets\\uploads\\18b2fff3-022b-4289-80b2-7b82a38de59d.png"
+      "Id": "C:\\CampainManagerProject\\Gupshupcampainmanager\\wwwroot\\uploads\\3c6ac04f-9b74-4f94-9966-288b6093ded9.png",
+      "PackagePath": "staticwebassets\\uploads\\3c6ac04f-9b74-4f94-9966-288b6093ded9.png"
+    },
+    {
+      "Id": "C:\\CampainManagerProject\\Gupshupcampainmanager\\wwwroot\\uploads\\6eddfb1a-b7aa-4453-822d-69b0739630ce.png",
+      "PackagePath": "staticwebassets\\uploads\\6eddfb1a-b7aa-4453-822d-69b0739630ce.png"
+    },
+    {
+      "Id": "C:\\CampainManagerProject\\Gupshupcampainmanager\\wwwroot\\uploads\\8afcb0b5-74e5-4d08-b3c3-aae50674d1da.png",
+      "PackagePath": "staticwebassets\\uploads\\8afcb0b5-74e5-4d08-b3c3-aae50674d1da.png"
+    },
+    {
+      "Id": "C:\\CampainManagerProject\\Gupshupcampainmanager\\wwwroot\\uploads\\f0e38a57-d604-4e8a-b516-9eafc51785d5.png",
+      "PackagePath": "staticwebassets\\uploads\\f0e38a57-d604-4e8a-b516-9eafc51785d5.png"
     },
     {
       "Id": "obj\\Debug\\net9.0\\staticwebassets\\msbuild.Gupshupcampainmanager.Microsoft.AspNetCore.StaticWebAssetEndpoints.props",

@@ -201,3 +201,10 @@ C:\CampainManagerProject\Gupshupcampainmanager\obj\Debug\net9.0\refint\Gupshupca
 C:\CampainManagerProject\Gupshupcampainmanager\obj\Debug\net9.0\Gupshupcampainmanager.pdb
 C:\CampainManagerProject\Gupshupcampainmanager\obj\Debug\net9.0\Gupshupcampainmanager.genruntimeconfig.cache
 C:\CampainManagerProject\Gupshupcampainmanager\obj\Debug\net9.0\ref\Gupshupcampainmanager.dll
+C:\CampainManagerProject\Gupshupcampainmanager\bin\Debug\net9.0\Dapper.dll
+C:\CampainManagerProject\Gupshupcampainmanager\bin\Debug\net9.0\System.Data.SqlClient.dll
+C:\CampainManagerProject\Gupshupcampainmanager\bin\Debug\net9.0\runtimes\win-arm64\native\sni.dll
+C:\CampainManagerProject\Gupshupcampainmanager\bin\Debug\net9.0\runtimes\win-x64\native\sni.dll
+C:\CampainManagerProject\Gupshupcampainmanager\bin\Debug\net9.0\runtimes\win-x86\native\sni.dll
+C:\CampainManagerProject\Gupshupcampainmanager\bin\Debug\net9.0\runtimes\unix\lib\net8.0\System.Data.SqlClient.dll
+C:\CampainManagerProject\Gupshupcampainmanager\bin\Debug\net9.0\runtimes\win\lib\net8.0\System.Data.SqlClient.dll

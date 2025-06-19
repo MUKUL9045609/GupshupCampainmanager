@@ -1,5 +1,5 @@
 ﻿@{
-    string pageTitle = ViewData["Title"]?.ToString() ?? "Save Campaine Details";
+    string pageTitle = ViewData["Title"]?.ToString() ?? "Save campaign Details";
 }
 
 <!DOCTYPE html>
@@ -44,7 +44,7 @@
     <div class="container">
         <div class="card p-4">
             <h2 class="text-center mb-4">@pageTitle</h2>
-            <form asp-controller="Gupshup" asp-action="SaveCampaineTemplate" method="post" enctype="multipart/form-data">
+            <form asp-controller="Gupshup" asp-action="SavecampaignTemplate" method="post" enctype="multipart/form-data">
                 <div class="mb-3">
                     <label for="imageFile" class="form-label">Upload Image</label>
                     <input type="file" class="form-control" id="imageFile" name="imageFile" accept="image/*" required />
@@ -55,7 +55,7 @@
                     <input type="text" class="form-control" id="Description" name="Description" placeholder="e.g., home loan" value="home loan" required />
                     <small class="form-text text-muted">This will appear in the message body (e.g., Avail [Description] at 5%).</small>
                 </div>
-                <button type="submit" class="btn btn-primary w-100">Save Campaine Details</button>
+                <button type="submit" class="btn btn-primary w-100">Save campaign Details</button>
             </form>
 
             @if (ViewBag.ResponseMessage != null)

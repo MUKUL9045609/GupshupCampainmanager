@@ -1,3 +1,4 @@
+using Gupshupcampainmanager.Repository.Interface;
 using Gupshupcampainmanager.Service;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -5,6 +6,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.AddHttpClient<GupshupApiService>();
+builder.Services.AddTransient<IGupshupApiService, GupshupApiService>();
 
 var app = builder.Build();
 
@@ -25,7 +27,7 @@ app.MapStaticAssets();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}")
+    pattern: "{controller=Gupshup}/{action=SavecampaignTemplate}")
     .WithStaticAssets();
 
 
