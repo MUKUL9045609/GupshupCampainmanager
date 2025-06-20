@@ -397,3 +397,8 @@ FodyWeavers.xsd
 # JetBrains Rider
 *.sln.iml
 /Gupshupcampainmanager/Properties/PublishProfiles/FolderProfile.pubxml.user
+
+
+# Ignore all bin and obj folders
+**/bin/
+**/obj/
