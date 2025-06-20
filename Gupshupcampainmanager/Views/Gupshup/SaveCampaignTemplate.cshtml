@@ -55,6 +55,10 @@
                         <label for="imageFile" class="form-label">Upload Image</label>
                         <input type="file" class="form-control" id="imageFile" name="imageFile" value="@ViewBag.ImagePath" accept="image/*" required />
                         <small class="form-text text-muted">Supported formats: PNG, JPG (max 5MB).</small>
+                        <br />
+                        <img src="@ViewBag.ImagePath" alt="Campaign Image" class="img-thumbnail" style="max-width: 100px;" />
+
+                        <small class="form-text text-muted" style="color: red !important;font-weight: 700;">*Selected Image.</small>
                     </div>
                     <div class="mb-3">
                         <label for="Description" class="form-label">Description</label>
@@ -70,6 +74,8 @@
                     <div class="mb-3">
                         <label for="imageFile" class="form-label">Upload Image</label>
                         <input type="file" class="form-control" id="imageFile" name="imageFile" accept="image/*" required />
+                       
+
                         <small class="form-text text-muted">Supported formats: PNG, JPG (max 5MB).</small>
                     </div>
                     <div class="mb-3">
