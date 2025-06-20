@@ -5,3 +5,14 @@
 /.vs/campaignmanager
 /.vs/Gupshupcampainmanager
 /Gupshupcampainmanager/obj/Debug/net9.0
+
+# Ignore build output
+**/bin/
+**/obj/
+
+# Ignore VS and publish profiles
+.vs/
+*.user
+*.suo
+Properties/PublishProfiles/
+
