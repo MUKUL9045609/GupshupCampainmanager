@@ -14,11 +14,13 @@ namespace Gupshupcampainmanager.Controllers
         private readonly ILogger<GupshupController> _logger;
         private readonly IConfiguration _configuration;
         private readonly IWebHostEnvironment _webHostEnvironment;
+        private readonly ICampaignRepository _campaignRepository;
 
-        public GupshupController(IWebHostEnvironment webHostEnvironment , IGupshupApiService gupshupApiService)
+        public GupshupController(IWebHostEnvironment webHostEnvironment , IGupshupApiService gupshupApiService , ICampaignRepository campaignRepository)
         {
             _webHostEnvironment = webHostEnvironment;
             _gupshupApiService = gupshupApiService;
+            _campaignRepository = campaignRepository;
         }
 
         public IActionResult Index()
@@ -172,6 +174,12 @@ namespace Gupshupcampainmanager.Controllers
 
               
                 string relativeImagePath = $"/uploads/{uniqueFileName}";
+
+                CampaignDetailsRequest request = new CampaignDetailsRequest();
+                request.ImagePath = filePath;
+                request.Desciption = Description;
+
+                var Result = _campaignRepository.InsertCampainDetails(request);
 
              
                 ViewBag.ResponseMessage = $"Image saved successfully at {relativeImagePath} and message with description '{Description}' prepared for sending.";

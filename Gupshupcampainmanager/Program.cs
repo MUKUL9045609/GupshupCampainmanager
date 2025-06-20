@@ -1,3 +1,6 @@
+using Gupshupcampainmanager;
+using Gupshupcampainmanager.Models;
+using Gupshupcampainmanager.Persistence;
 using Gupshupcampainmanager.Repository.Interface;
 using Gupshupcampainmanager.Service;
 
@@ -7,6 +10,21 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 builder.Services.AddHttpClient<GupshupApiService>();
 builder.Services.AddTransient<IGupshupApiService, GupshupApiService>();
+builder.Services.AddTransient<ICampaignRepository, CampaignRepository>();
+builder.Services.AddSingleton<DbContext>();
+builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
+
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy(name: "MyAllowSpecificOrigins",
+    builder =>
+    {
+        builder.WithOrigins("*").AllowAnyHeader().AllowAnyMethod();
+    });
+});
+
+builder.Services.AddControllers();
+
 
 var app = builder.Build();
 
