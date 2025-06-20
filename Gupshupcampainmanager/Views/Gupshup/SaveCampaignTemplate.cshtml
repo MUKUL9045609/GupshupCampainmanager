@@ -65,7 +65,11 @@
                         <input type="text" class="form-control" id="Description" name="Description" value="@ViewBag.Description" placeholder="e.g., home loan"  required />
                         <small class="form-text text-muted">This will appear in the message body (e.g., Avail [Description] at 5%).</small>
                     </div>
-                    <button type="submit" class="btn btn-primary w-100">Save campaign Details</button>
+                
+                    <div class="d-flex gap-2">
+                        <button type="submit" class="btn btn-primary flex-fill">Save </button>
+                        <a href="@Url.Action("SaveCampaignTemplate", "Gupshup")" class="btn btn-danger flex-fill">Cancel</a>
+                    </div>
                 </form>
             }
             else
@@ -83,7 +87,10 @@
                         <input type="text" class="form-control" id="Description" name="Description" placeholder="e.g., home loan" required />
                         <small class="form-text text-muted">This will appear in the message body (e.g., Avail [Description] at 5%).</small>
                     </div>
-                    <button type="submit" class="btn btn-primary w-100">Save campaign Details</button>
+                    <div class="d-flex gap-2">
+                        <button type="submit" class="btn btn-primary flex-fill">Save </button>
+                        <a href="@Url.Action("SaveCampaignTemplate", "Gupshup")" class="btn btn-danger flex-fill">Cancel</a>
+                    </div>
                 </form>
             }
             @if (ViewBag.ResponseMessage != null)
