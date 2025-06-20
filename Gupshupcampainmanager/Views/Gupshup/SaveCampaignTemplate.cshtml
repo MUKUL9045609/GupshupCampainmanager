@@ -81,8 +81,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                @if (campaignList != null && campaignList.Count > 0)
-                {
+             
                     @for (int i = 0; i < campaignList.Count; i++)
                     {
                         var item = campaignList[i];
@@ -94,7 +93,6 @@
                                             <td>@item.Desciption</td>
                                         </tr>
                     }
-                }
                 </tbody>
             </table>
         </div>
