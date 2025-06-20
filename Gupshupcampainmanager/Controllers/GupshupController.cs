@@ -112,7 +112,11 @@ namespace Gupshupcampainmanager.Controllers
 
         public IActionResult SaveCampaignTemplate()
         {
-            ViewData["Title"] = "Save campaign Details";
+            ViewData["Title"] = "Save Campaign Details";
+
+            var campaigns = _campaignRepository.GetCampainDetails();
+            ViewBag.CampaignList = campaigns.Result.ToList();
+
             return View();
         }
 

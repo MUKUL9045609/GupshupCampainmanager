@@ -29,5 +29,20 @@ namespace Gupshupcampainmanager.Service
             }
 
         }
+
+
+        public async Task<IEnumerable<CampaignDetails>> GetCampainDetails()
+        {
+            try
+            {
+                DynamicParameters parameters = new DynamicParameters();  
+                return await _repository.GetListByValuesAsync<CampaignDetails>("sp_Get_CampaignDetails", parameters);
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+
+        }
     }
 }
