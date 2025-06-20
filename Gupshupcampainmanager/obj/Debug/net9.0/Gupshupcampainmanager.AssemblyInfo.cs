@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Gupshupcampainmanager")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f2a3115955ea2f1c4b6d4eecfb7374e631ea778b")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+67b0ae87d3fc9d9f071de1a53a64404bcf4029b8")]
 [assembly: System.Reflection.AssemblyProductAttribute("Gupshupcampainmanager")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Gupshupcampainmanager")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
