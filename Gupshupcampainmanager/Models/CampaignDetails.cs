@@ -19,7 +19,8 @@
 
     public class CampaignDetailsRequest
     {
-        
+
+        public int Id { get; set; }
         public string Desciption { get; set; }
 
         public string ImagePath { get; set; }

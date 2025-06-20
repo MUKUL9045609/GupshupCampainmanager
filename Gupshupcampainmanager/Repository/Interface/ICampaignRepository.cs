@@ -6,5 +6,8 @@ namespace Gupshupcampainmanager.Repository.Interface
     {
         Task<CampaignDetailsResponse> InsertCampainDetails(CampaignDetailsRequest model);
         Task<IEnumerable<CampaignDetails>> GetCampainDetails();
+        Task<CampaignDetailsResponse> GetCampainDetailsById(int Id);
+        Task<bool> DeletCampainDetailsById(int Id);
+
     }
 }
