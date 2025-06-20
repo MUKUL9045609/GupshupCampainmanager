@@ -61,15 +61,15 @@
 
             @if (ViewBag.ResponseMessage != null)
             {
-                <div class="alert @(ViewBag.AlertClass ?? "alert-info") mt-3" role="alert">
+                        <div class="alert @(ViewBag.AlertClass ?? "alert-info") mt-3" role="alert">
                     @ViewBag.ResponseMessage
-                </div>
+                        </div>
             }
         </div>
     </div>
 
     <!-- Listing Section -->
-   
+
         <div class="listing-card card p-4 mt-4">
             <h4 class="mb-3">Saved Campaigns</h4>
             <table class="table table-striped align-middle">
@@ -86,21 +86,64 @@
                     @for (int i = 0; i < campaignList.Count; i++)
                     {
                         var item = campaignList[i];
-                        <tr>
-                            <td>@(i + 1)</td>
-                            <td>
-                                <img src="@item.ImagePath" alt="Campaign Image" class="img-thumbnail" style="max-width: 100px;" />
-                            </td>
-                            <td>@item.Desciption</td>
-                        </tr>
+                                        <tr>
+                                                    <td>@item.Id</td>
+                                            <td>
+                                                <img src="@item.ImagePath" alt="Campaign Image" class="img-thumbnail" style="max-width: 100px;" />
+                                            </td>
+                                            <td>@item.Desciption</td>
+                                        </tr>
                     }
                 }
                 </tbody>
             </table>
         </div>
-   
+
 
     <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        document.querySelectorAll('.select-row').forEach(function (cell) {
+            cell.addEventListener('click', function () {
+                const imagePath = this.getAttribute('data-image');
+                const description = this.getAttribute('data-description');
+
+                // Set description
+                document.getElementById('Description').value = description || '';
+
+                // Optionally preview image (file input cannot be set directly)
+                const previewContainer = document.getElementById('imagePreview');
+                if (previewContainer) {
+                    previewContainer.innerHTML = `<img src="${imagePath}" class="img-thumbnail mt-2" style="max-width: 150px;" />`;
+                }
+            });
+        });
+    });
+</script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        document.querySelectorAll('.select-row').forEach(function (cell) {
+            cell.addEventListener('click', function () {
+                const imagePath = this.getAttribute('data-image');
+                const description = this.getAttribute('data-description');
+
+                // Set Description input
+                const descriptionInput = document.getElementById('Description');
+                if (descriptionInput && description) {
+                    descriptionInput.value = description;
+                }
+
+                // Show image preview
+                const previewContainer = document.getElementById('imagePreview');
+                if (previewContainer && imagePath) {
+                    previewContainer.innerHTML = `<img src="${imagePath}" class="img-thumbnail mt-2" style="max-width: 150px;" alt="Selected Image" />`;
+                }
+            });
+        });
+    });
+</script>
+
 </body>
 </html>
