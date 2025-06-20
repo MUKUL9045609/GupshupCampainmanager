@@ -402,4 +402,4 @@ FodyWeavers.xsd
 # Ignore all bin and obj folders
 **/bin/
 **/obj/
-**/obj/Debug
+
