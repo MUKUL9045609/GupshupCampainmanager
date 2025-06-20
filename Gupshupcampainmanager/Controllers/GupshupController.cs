@@ -175,8 +175,12 @@ namespace Gupshupcampainmanager.Controllers
               
                 string relativeImagePath = $"/uploads/{uniqueFileName}";
 
+
+                string fullImageUrl = $"{Request.Scheme}://{Request.Host}{relativeImagePath}";
+
+
                 CampaignDetailsRequest request = new CampaignDetailsRequest();
-                request.ImagePath = filePath;
+                request.ImagePath = fullImageUrl;
                 request.Desciption = Description;
 
                 var Result = _campaignRepository.InsertCampainDetails(request);

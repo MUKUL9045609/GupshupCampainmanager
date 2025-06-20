@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "7rHFBRIDxkk5Qhxfh/6f/izxmsbraz3ebK48d166o+c=",
+  "Hash": "3IUuwznqr6Uc2DrlKNwjiaLIOg7nHQrgSXAFjAytaWk=",
   "Source": "Gupshupcampainmanager",
   "BasePath": "_content/Gupshupcampainmanager",
   "Mode": "Default",
@@ -2726,6 +2726,48 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
     },
     {
+      "Identity": "C:\\CampainManagerProject\\Gupshupcampainmanager\\wwwroot\\uploads\\28dc19ce-3620-42d5-a4c8-47aee9e6eb09.jpg",
+      "SourceId": "Gupshupcampainmanager",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\CampainManagerProject\\Gupshupcampainmanager\\wwwroot\\",
+      "BasePath": "_content/Gupshupcampainmanager",
+      "RelativePath": "uploads/28dc19ce-3620-42d5-a4c8-47aee9e6eb09#[.{fingerprint}]?.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "9s3u47ya06",
+      "Integrity": "qQ4t+rJXgo1LvXEVlmn3bYhRwrnaKZmNtreoprNBb3w=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\28dc19ce-3620-42d5-a4c8-47aee9e6eb09.jpg"
+    },
+    {
+      "Identity": "C:\\CampainManagerProject\\Gupshupcampainmanager\\wwwroot\\uploads\\31811f36-1c38-4098-939d-daf91b80a1d3.jpg",
+      "SourceId": "Gupshupcampainmanager",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\CampainManagerProject\\Gupshupcampainmanager\\wwwroot\\",
+      "BasePath": "_content/Gupshupcampainmanager",
+      "RelativePath": "uploads/31811f36-1c38-4098-939d-daf91b80a1d3#[.{fingerprint}]?.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "9s3u47ya06",
+      "Integrity": "qQ4t+rJXgo1LvXEVlmn3bYhRwrnaKZmNtreoprNBb3w=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\31811f36-1c38-4098-939d-daf91b80a1d3.jpg"
+    },
+    {
       "Identity": "C:\\CampainManagerProject\\Gupshupcampainmanager\\wwwroot\\uploads\\3c6ac04f-9b74-4f94-9966-288b6093ded9.png",
       "SourceId": "Gupshupcampainmanager",
       "SourceType": "Discovered",
@@ -2745,6 +2787,69 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\uploads\\3c6ac04f-9b74-4f94-9966-288b6093ded9.png"
+    },
+    {
+      "Identity": "C:\\CampainManagerProject\\Gupshupcampainmanager\\wwwroot\\uploads\\40239765-a12e-4b24-93d6-7b43590dcef5.jpg",
+      "SourceId": "Gupshupcampainmanager",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\CampainManagerProject\\Gupshupcampainmanager\\wwwroot\\",
+      "BasePath": "_content/Gupshupcampainmanager",
+      "RelativePath": "uploads/40239765-a12e-4b24-93d6-7b43590dcef5#[.{fingerprint}]?.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "9s3u47ya06",
+      "Integrity": "qQ4t+rJXgo1LvXEVlmn3bYhRwrnaKZmNtreoprNBb3w=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\40239765-a12e-4b24-93d6-7b43590dcef5.jpg"
+    },
+    {
+      "Identity": "C:\\CampainManagerProject\\Gupshupcampainmanager\\wwwroot\\uploads\\4230d8ab-8605-4863-acc8-88ceafd7b14a.jpg",
+      "SourceId": "Gupshupcampainmanager",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\CampainManagerProject\\Gupshupcampainmanager\\wwwroot\\",
+      "BasePath": "_content/Gupshupcampainmanager",
+      "RelativePath": "uploads/4230d8ab-8605-4863-acc8-88ceafd7b14a#[.{fingerprint}]?.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "9s3u47ya06",
+      "Integrity": "qQ4t+rJXgo1LvXEVlmn3bYhRwrnaKZmNtreoprNBb3w=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\4230d8ab-8605-4863-acc8-88ceafd7b14a.jpg"
+    },
+    {
+      "Identity": "C:\\CampainManagerProject\\Gupshupcampainmanager\\wwwroot\\uploads\\6c5b0380-76a8-4fd4-a4c9-0dc297bc6ca0.jpg",
+      "SourceId": "Gupshupcampainmanager",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\CampainManagerProject\\Gupshupcampainmanager\\wwwroot\\",
+      "BasePath": "_content/Gupshupcampainmanager",
+      "RelativePath": "uploads/6c5b0380-76a8-4fd4-a4c9-0dc297bc6ca0#[.{fingerprint}]?.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "9s3u47ya06",
+      "Integrity": "qQ4t+rJXgo1LvXEVlmn3bYhRwrnaKZmNtreoprNBb3w=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\6c5b0380-76a8-4fd4-a4c9-0dc297bc6ca0.jpg"
     },
     {
       "Identity": "C:\\CampainManagerProject\\Gupshupcampainmanager\\wwwroot\\uploads\\6eddfb1a-b7aa-4453-822d-69b0739630ce.png",
@@ -2808,6 +2913,27 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\uploads\\f0e38a57-d604-4e8a-b516-9eafc51785d5.png"
+    },
+    {
+      "Identity": "C:\\CampainManagerProject\\Gupshupcampainmanager\\wwwroot\\uploads\\fdd68881-1701-4e1f-808d-2c9b2ef83942.png",
+      "SourceId": "Gupshupcampainmanager",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\CampainManagerProject\\Gupshupcampainmanager\\wwwroot\\",
+      "BasePath": "_content/Gupshupcampainmanager",
+      "RelativePath": "uploads/fdd68881-1701-4e1f-808d-2c9b2ef83942#[.{fingerprint}]?.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "4709vqyv8u",
+      "Integrity": "QHA/sy/zel49VIxuNpfNUwSnjhuPt7mBE1x1iV4kyRg=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\fdd68881-1701-4e1f-808d-2c9b2ef83942.png"
     }
   ],
   "Endpoints": [
@@ -21966,6 +22092,170 @@
       ]
     },
     {
+      "Route": "uploads/28dc19ce-3620-42d5-a4c8-47aee9e6eb09.9s3u47ya06.jpg",
+      "AssetFile": "C:\\CampainManagerProject\\Gupshupcampainmanager\\wwwroot\\uploads\\28dc19ce-3620-42d5-a4c8-47aee9e6eb09.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "4407"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"qQ4t+rJXgo1LvXEVlmn3bYhRwrnaKZmNtreoprNBb3w=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 20 Jun 2025 04:50:52 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "9s3u47ya06"
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/28dc19ce-3620-42d5-a4c8-47aee9e6eb09.jpg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-qQ4t+rJXgo1LvXEVlmn3bYhRwrnaKZmNtreoprNBb3w="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/28dc19ce-3620-42d5-a4c8-47aee9e6eb09.jpg",
+      "AssetFile": "C:\\CampainManagerProject\\Gupshupcampainmanager\\wwwroot\\uploads\\28dc19ce-3620-42d5-a4c8-47aee9e6eb09.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "4407"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"qQ4t+rJXgo1LvXEVlmn3bYhRwrnaKZmNtreoprNBb3w=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 20 Jun 2025 04:50:52 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-qQ4t+rJXgo1LvXEVlmn3bYhRwrnaKZmNtreoprNBb3w="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/31811f36-1c38-4098-939d-daf91b80a1d3.9s3u47ya06.jpg",
+      "AssetFile": "C:\\CampainManagerProject\\Gupshupcampainmanager\\wwwroot\\uploads\\31811f36-1c38-4098-939d-daf91b80a1d3.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "4407"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"qQ4t+rJXgo1LvXEVlmn3bYhRwrnaKZmNtreoprNBb3w=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 20 Jun 2025 04:55:06 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "9s3u47ya06"
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/31811f36-1c38-4098-939d-daf91b80a1d3.jpg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-qQ4t+rJXgo1LvXEVlmn3bYhRwrnaKZmNtreoprNBb3w="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/31811f36-1c38-4098-939d-daf91b80a1d3.jpg",
+      "AssetFile": "C:\\CampainManagerProject\\Gupshupcampainmanager\\wwwroot\\uploads\\31811f36-1c38-4098-939d-daf91b80a1d3.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "4407"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"qQ4t+rJXgo1LvXEVlmn3bYhRwrnaKZmNtreoprNBb3w=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 20 Jun 2025 04:55:06 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-qQ4t+rJXgo1LvXEVlmn3bYhRwrnaKZmNtreoprNBb3w="
+        }
+      ]
+    },
+    {
       "Route": "uploads/3c6ac04f-9b74-4f94-9966-288b6093ded9.4709vqyv8u.png",
       "AssetFile": "C:\\CampainManagerProject\\Gupshupcampainmanager\\wwwroot\\uploads\\3c6ac04f-9b74-4f94-9966-288b6093ded9.png",
       "Selectors": [],
@@ -22044,6 +22334,252 @@
         {
           "Name": "integrity",
           "Value": "sha256-QHA/sy/zel49VIxuNpfNUwSnjhuPt7mBE1x1iV4kyRg="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/40239765-a12e-4b24-93d6-7b43590dcef5.9s3u47ya06.jpg",
+      "AssetFile": "C:\\CampainManagerProject\\Gupshupcampainmanager\\wwwroot\\uploads\\40239765-a12e-4b24-93d6-7b43590dcef5.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "4407"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"qQ4t+rJXgo1LvXEVlmn3bYhRwrnaKZmNtreoprNBb3w=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 20 Jun 2025 04:52:15 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "9s3u47ya06"
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/40239765-a12e-4b24-93d6-7b43590dcef5.jpg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-qQ4t+rJXgo1LvXEVlmn3bYhRwrnaKZmNtreoprNBb3w="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/40239765-a12e-4b24-93d6-7b43590dcef5.jpg",
+      "AssetFile": "C:\\CampainManagerProject\\Gupshupcampainmanager\\wwwroot\\uploads\\40239765-a12e-4b24-93d6-7b43590dcef5.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "4407"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"qQ4t+rJXgo1LvXEVlmn3bYhRwrnaKZmNtreoprNBb3w=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 20 Jun 2025 04:52:15 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-qQ4t+rJXgo1LvXEVlmn3bYhRwrnaKZmNtreoprNBb3w="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/4230d8ab-8605-4863-acc8-88ceafd7b14a.9s3u47ya06.jpg",
+      "AssetFile": "C:\\CampainManagerProject\\Gupshupcampainmanager\\wwwroot\\uploads\\4230d8ab-8605-4863-acc8-88ceafd7b14a.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "4407"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"qQ4t+rJXgo1LvXEVlmn3bYhRwrnaKZmNtreoprNBb3w=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 20 Jun 2025 04:58:19 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "9s3u47ya06"
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/4230d8ab-8605-4863-acc8-88ceafd7b14a.jpg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-qQ4t+rJXgo1LvXEVlmn3bYhRwrnaKZmNtreoprNBb3w="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/4230d8ab-8605-4863-acc8-88ceafd7b14a.jpg",
+      "AssetFile": "C:\\CampainManagerProject\\Gupshupcampainmanager\\wwwroot\\uploads\\4230d8ab-8605-4863-acc8-88ceafd7b14a.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "4407"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"qQ4t+rJXgo1LvXEVlmn3bYhRwrnaKZmNtreoprNBb3w=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 20 Jun 2025 04:58:19 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-qQ4t+rJXgo1LvXEVlmn3bYhRwrnaKZmNtreoprNBb3w="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/6c5b0380-76a8-4fd4-a4c9-0dc297bc6ca0.9s3u47ya06.jpg",
+      "AssetFile": "C:\\CampainManagerProject\\Gupshupcampainmanager\\wwwroot\\uploads\\6c5b0380-76a8-4fd4-a4c9-0dc297bc6ca0.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "4407"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"qQ4t+rJXgo1LvXEVlmn3bYhRwrnaKZmNtreoprNBb3w=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 20 Jun 2025 04:56:05 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "9s3u47ya06"
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/6c5b0380-76a8-4fd4-a4c9-0dc297bc6ca0.jpg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-qQ4t+rJXgo1LvXEVlmn3bYhRwrnaKZmNtreoprNBb3w="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/6c5b0380-76a8-4fd4-a4c9-0dc297bc6ca0.jpg",
+      "AssetFile": "C:\\CampainManagerProject\\Gupshupcampainmanager\\wwwroot\\uploads\\6c5b0380-76a8-4fd4-a4c9-0dc297bc6ca0.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "4407"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"qQ4t+rJXgo1LvXEVlmn3bYhRwrnaKZmNtreoprNBb3w=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 20 Jun 2025 04:56:05 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-qQ4t+rJXgo1LvXEVlmn3bYhRwrnaKZmNtreoprNBb3w="
         }
       ]
     },
@@ -22280,6 +22816,88 @@
         {
           "Name": "Last-Modified",
           "Value": "Thu, 19 Jun 2025 10:41:14 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-QHA/sy/zel49VIxuNpfNUwSnjhuPt7mBE1x1iV4kyRg="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/fdd68881-1701-4e1f-808d-2c9b2ef83942.4709vqyv8u.png",
+      "AssetFile": "C:\\CampainManagerProject\\Gupshupcampainmanager\\wwwroot\\uploads\\fdd68881-1701-4e1f-808d-2c9b2ef83942.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "5644"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"QHA/sy/zel49VIxuNpfNUwSnjhuPt7mBE1x1iV4kyRg=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 20 Jun 2025 04:57:09 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "4709vqyv8u"
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/fdd68881-1701-4e1f-808d-2c9b2ef83942.png"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-QHA/sy/zel49VIxuNpfNUwSnjhuPt7mBE1x1iV4kyRg="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/fdd68881-1701-4e1f-808d-2c9b2ef83942.png",
+      "AssetFile": "C:\\CampainManagerProject\\Gupshupcampainmanager\\wwwroot\\uploads\\fdd68881-1701-4e1f-808d-2c9b2ef83942.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "5644"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"QHA/sy/zel49VIxuNpfNUwSnjhuPt7mBE1x1iV4kyRg=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 20 Jun 2025 04:57:09 GMT"
         },
         {
           "Name": "Cache-Control",
