@@ -1,8 +1,5 @@
 ﻿using Gupshupcampainmanager.Models;
 using Gupshupcampainmanager.Repository.Interface;
-using Gupshupcampainmanager.Service;
-using Microsoft.AspNetCore.DataProtection.KeyManagement;
-using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Gupshupcampainmanager.Controllers
@@ -47,17 +44,17 @@ namespace Gupshupcampainmanager.Controllers
 
         public IActionResult SendMessage()
         {
-            ViewData["Title"] = "Send WhatsApp Message";
+            ViewData["Title"] = "Bulk Upload";
             return View();
         }
 
 
         [HttpPost]
-        public async Task<IActionResult> SendMessage(IFormFile imageFile, string Description)
+        public async Task<IActionResult> SendMessage(IFormFile imageFile)
         {
             try
             {
-                string result = await _gupshupApiService.SendWhatsAppMessage("","","", "", "", "","",""); ;
+                string result = await _gupshupApiService.SendWhatsAppMessage(imageFile);
 
                 ViewBag.ResponseMessage = "Message sent successfully! ";
                 ViewBag.AlertClass = "alert-success";
@@ -275,6 +272,18 @@ namespace Gupshupcampainmanager.Controllers
             var campaign = _campaignRepository.DeletCampainDetailsById(id);
             TempData["ResponseMessage"] = "Campaign deleted successfully!";
             return RedirectToAction("SavecampaignTemplate"); // Reload view
+        }
+
+
+        public IActionResult DownloadSampleFile()
+        {
+            var filePath = Path.Combine(_webHostEnvironment.WebRootPath, "sample.csv");
+            if (!System.IO.File.Exists(filePath))
+            {
+                return NotFound("Sample file not found.");
+            }
+            var fileStream = new FileStream(filePath, FileMode.Open, FileAccess.Read);
+            return File(fileStream, "text/csv", "sample.csv");
         }
     }
 }

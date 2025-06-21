@@ -68,18 +68,27 @@ namespace Gupshupcampainmanager.Service
             }
         }
 
-        public async Task<string> SendWhatsAppMessage(string apiKey, string source, string destination, string appName, string templateId, string imageHandleId, string offerText, string SendSMSUrl)
+        public async Task<string> SendWhatsAppMessage(IFormFile File)
         {
             try
             {
+                var offerText = "";
 
-                templateId = _configuration["GupshupConfiguration:templateId"];
-                source = _configuration["GupshupConfiguration:source"];
-                appName = _configuration["GupshupConfiguration:appName"];
-                apiKey = _configuration["GupshupConfiguration:apiKey"];
-                SendSMSUrl = _configuration["GupshupConfiguration:SendSMSUrl"];
-                imageHandleId = offerText;
-                destination = "919552065205";
+                using var reader = new StreamReader(File.OpenReadStream());
+                bool isHeader = true;
+
+                while (!reader.EndOfStream)
+                {
+                    var line = await reader.ReadLineAsync();
+                }
+
+                var templateId = _configuration["GupshupConfiguration:templateId"];
+                var source = _configuration["GupshupConfiguration:source"];
+                var appName = _configuration["GupshupConfiguration:appName"];
+                var apiKey = _configuration["GupshupConfiguration:apiKey"];
+                var SendSMSUrl = _configuration["GupshupConfiguration:SendSMSUrl"];
+                var imageHandleId = offerText;
+                var destination = "919552065205";
 
                 client.DefaultRequestHeaders.Clear();
                 client.DefaultRequestHeaders.Add("apikey", apiKey);
@@ -121,7 +130,6 @@ namespace Gupshupcampainmanager.Service
             }
             return dict;
         }
-
 
         public  async Task<List<Dictionary<string, string>>> ReadCsvAsync(IFormFile file)
         {
