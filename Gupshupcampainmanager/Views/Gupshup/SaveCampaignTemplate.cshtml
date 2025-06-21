@@ -1,5 +1,7 @@
 ﻿@{
     string pageTitle = ViewData["Title"]?.ToString() ?? "Save campaign Details";
+    var campaignList = ViewBag.CampaignList as List<CampaignDetails>;
+    var Id = ViewBag.Id;
 }
 
 <!DOCTYPE html>
@@ -44,20 +46,53 @@
     <div class="container">
         <div class="card p-4">
             <h2 class="text-center mb-4">@pageTitle</h2>
-            <form asp-controller="Gupshup" asp-action="SavecampaignTemplate" method="post" enctype="multipart/form-data">
-                <div class="mb-3">
-                    <label for="imageFile" class="form-label">Upload Image</label>
-                    <input type="file" class="form-control" id="imageFile" name="imageFile" accept="image/*" required />
-                    <small class="form-text text-muted">Supported formats: PNG, JPG (max 5MB).</small>
-                </div>
-                <div class="mb-3">
-                    <label for="Description" class="form-label">Description</label>
-                    <input type="text" class="form-control" id="Description" name="Description" placeholder="e.g., home loan" value="home loan" required />
-                    <small class="form-text text-muted">This will appear in the message body (e.g., Avail [Description] at 5%).</small>
-                </div>
-                <button type="submit" class="btn btn-primary w-100">Save campaign Details</button>
-            </form>
+            @if (ViewBag.Id != null)
+            {
+                <form asp-controller="Gupshup" asp-action="UpdatecampaignTemplate" method="post" enctype="multipart/form-data">
+                    <input type="text" hidden="hidden" class="form-control" id="Id" name="Id" value="@ViewBag.Id" required />
 
+                    <div class="mb-3">
+                        <label for="imageFile" class="form-label">Upload Image</label>
+                        <input type="file" class="form-control" id="imageFile" name="imageFile" value="@ViewBag.ImagePath" accept="image/*" required />
+                        <small class="form-text text-muted">Supported formats: PNG, JPG (max 5MB).</small>
+                        <br />
+                        <img src="@ViewBag.ImagePath" alt="Campaign Image" class="img-thumbnail" style="max-width: 100px;" />
+
+                        <small class="form-text text-muted" style="color: red !important;font-weight: 700;">*Selected Image.</small>
+                    </div>
+                    <div class="mb-3">
+                        <label for="Description" class="form-label">Description</label>
+                        <input type="text" class="form-control" id="Description" name="Description" value="@ViewBag.Description" placeholder="e.g., home loan"  required />
+                        <small class="form-text text-muted">This will appear in the message body (e.g., Avail [Description] at 5%).</small>
+                    </div>
+                
+                    <div class="d-flex gap-2">
+                        <button type="submit" class="btn btn-primary flex-fill">Save </button>
+                        <a href="@Url.Action("SaveCampaignTemplate", "Gupshup")" class="btn btn-danger flex-fill">Cancel</a>
+                    </div>
+                </form>
+            }
+            else
+            {
+                <form asp-controller="Gupshup" asp-action="SavecampaignTemplate" method="post" enctype="multipart/form-data">
+                    <div class="mb-3">
+                        <label for="imageFile" class="form-label">Upload Image</label>
+                        <input type="file" class="form-control" id="imageFile" name="imageFile" accept="image/*" required />
+                       
+
+                        <small class="form-text text-muted">Supported formats: PNG, JPG (max 5MB).</small>
+                    </div>
+                    <div class="mb-3">
+                        <label for="Description" class="form-label">Description</label>
+                        <input type="text" class="form-control" id="Description" name="Description" placeholder="e.g., home loan" required />
+                        <small class="form-text text-muted">This will appear in the message body (e.g., Avail [Description] at 5%).</small>
+                    </div>
+                    <div class="d-flex gap-2">
+                        <button type="submit" class="btn btn-primary flex-fill">Save </button>
+                        <a href="@Url.Action("SaveCampaignTemplate", "Gupshup")" class="btn btn-danger flex-fill">Cancel</a>
+                    </div>
+                </form>
+            }
             @if (ViewBag.ResponseMessage != null)
             {
                 <div class="alert @(ViewBag.AlertClass ?? "alert-info") mt-3" role="alert">
@@ -67,7 +102,82 @@
         </div>
     </div>
 
+    <!-- Listing Section -->
+
+    <div class="listing-card card p-4 mt-4">
+        <h4 class="mb-3">Campaigns List</h4>
+        <table class="table table-striped align-middle">
+            <thead class="table-light">
+                <tr>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                    <th>#</th>
+                    <th>Image</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                @for (int i = 0; i < campaignList.Count; i++)
+                {
+                    var item = campaignList[i];
+                    <tr>
+                        <td>
+                            <!-- Edit Button -->
+                            <a href="@Url.Action("Edit", "Gupshup", new { id = item.Id })"
+                               class="btn btn-sm btn-outline-primary">
+                                Edit
+                            </a>
+                        </td>
+                        <td>
+                            <!-- Delete Button -->
+                            <a href="@Url.Action("Delete", "Gupshup", new { id = item.Id })"
+                               class="btn btn-sm btn-outline-danger"
+                               onclick="return confirm('Are you sure you want to delete this campaign?');">
+                                Delete
+                            </a>
+                        </td>
+                        <td>@(i + 1)</td>
+                        <td>
+                            <img src="@item.ImagePath" alt="Campaign Image" class="img-thumbnail" style="max-width: 100px;" />
+                        </td>
+                        <td>@item.Desciption</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+          document.addEventListener('DOMContentLoaded', function () {
+            document.querySelectorAll('.select-row').forEach(function (btn) {
+                btn.addEventListener('click', function () {
+                    const imagePath = this.getAttribute('data-image');
+                    const description = this.getAttribute('data-description');
+
+                    // Set description
+                    const descriptionInput = document.getElementById('Description');
+                    if (descriptionInput) {
+                        descriptionInput.value = description || '';
+                    }
+
+                    // Store existing image path in hidden field
+                    const hiddenImagePath = document.getElementById('ExistingImagePath');
+                    if (hiddenImagePath) {
+                        hiddenImagePath.value = imagePath || '';
+                    }
+
+                    // Show image preview
+                    const previewContainer = document.getElementById('imagePreview');
+                    if (previewContainer && imagePath) {
+                        previewContainer.innerHTML = `<img src="${imagePath}" class="img-thumbnail mt-2" style="max-width: 150px;" alt="Selected Image" />`;
+                    }
+                });
+            });
+        });
+    </script>
+
 </body>
 </html>
