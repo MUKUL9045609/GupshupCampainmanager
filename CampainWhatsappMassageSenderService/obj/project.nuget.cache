@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "g+n3kKtDQ/M=",
+  "dgSpecHash": "wmtm6QCfGMo=",
   "success": true,
-  "projectFilePath": "C:\\CampainManagerProject\\CampainWhatsappMassageSenderService\\CampainWhatsappMassageSenderService.csproj",
+  "projectFilePath": "C:\\CampainManagerProject\\CampainWhatsappMassageSenderService\\CampaignWhatsappMassageSenderService.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Fortune4\\.nuget\\packages\\microsoft.extensions.configuration\\9.0.6\\microsoft.extensions.configuration.9.0.6.nupkg.sha512",
     "C:\\Users\\Fortune4\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\9.0.6\\microsoft.extensions.configuration.abstractions.9.0.6.nupkg.sha512",

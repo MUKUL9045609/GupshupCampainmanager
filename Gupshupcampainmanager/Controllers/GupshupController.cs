@@ -68,17 +68,13 @@ namespace Gupshupcampainmanager.Controllers
             return View();
         }
 
-
         public IActionResult SaveCampaignTemplate()
         {
             ViewData["Title"] = "Save Campaign Details";
-
             var campaigns = _campaignRepository.GetCampainDetails();
             ViewBag.CampaignList = campaigns.Result.ToList();
-
             return View();
         }
-
 
         [HttpPost]
         public async Task<IActionResult> SaveCampaignTemplate(IFormFile imageFile, string Description)
@@ -161,8 +157,6 @@ namespace Gupshupcampainmanager.Controllers
 
             return View("SaveCampaignTemplate");
         }
-
-
         public async Task<IActionResult> UpdatecampaignTemplate(IFormFile imageFile, string Description , int Id)
         {
             ViewData["Title"] = "Save campaign Details";
@@ -246,9 +240,6 @@ namespace Gupshupcampainmanager.Controllers
 
             return View("SaveCampaignTemplate");
         }
-
-
-
         public IActionResult Edit(int id)
         {
             var campaign = _campaignRepository.GetCampainDetailsById(id); 
@@ -265,7 +256,6 @@ namespace Gupshupcampainmanager.Controllers
 
             return View("SavecampaignTemplate"); 
         }
-
         [HttpGet]
         public IActionResult Delete(int id)
         {
@@ -273,8 +263,6 @@ namespace Gupshupcampainmanager.Controllers
             TempData["ResponseMessage"] = "Campaign deleted successfully!";
             return RedirectToAction("SavecampaignTemplate"); // Reload view
         }
-
-
         public IActionResult DownloadSampleFile()
         {
             var filePath = Path.Combine(_webHostEnvironment.WebRootPath, "sample.csv");

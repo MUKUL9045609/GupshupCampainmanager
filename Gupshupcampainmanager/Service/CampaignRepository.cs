@@ -53,7 +53,7 @@ namespace Gupshupcampainmanager.Service
 
                 parameters.Add("Id", Id);
 
-                return await _repository.GetByValuesAsync<CampaignDetailsResponse>("Sp_Get_CampaignDetails_ById", parameters);
+                return await _repository.GetByValuesAsync<CampaignDetailsResponse>("sp_Get_CampaignDetails_ById", parameters);
             }
             catch (Exception ex)
             {
@@ -70,7 +70,7 @@ namespace Gupshupcampainmanager.Service
 
                 parameters.Add("Id", Id);
 
-                 await _repository.DeleteAsync("Sp_Delete_CampaignDetails_ById", parameters);
+                 await _repository.DeleteAsync("sp_Delete_CampaignDetails_ById", parameters);
 
                 return true;
             }
@@ -81,6 +81,26 @@ namespace Gupshupcampainmanager.Service
 
         }
 
-      
+        public async Task<bool> DeActiveCampaign(int Id , bool IsActive)
+        {
+            try
+            {
+                DynamicParameters parameters = new DynamicParameters();
+
+                parameters.Add("Id", Id);
+                parameters.Add("IsActive", IsActive);
+
+                await _repository.DeleteAsync("Sp_Change_Campaign_Status", parameters);
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+
+        }
+
+
     }
 }

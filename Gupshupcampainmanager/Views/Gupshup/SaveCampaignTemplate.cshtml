@@ -109,11 +109,14 @@
         <table class="table table-striped align-middle">
             <thead class="table-light">
                 <tr>
+                   
                     <th>Edit</th>
                     <th>Delete</th>
                     <th>#</th>
                     <th>Image</th>
                     <th>Description</th>
+                    <th>Status</th>
+                    
                 </tr>
             </thead>
             <tbody>
@@ -121,6 +124,7 @@
                 {
                     var item = campaignList[i];
                     <tr>
+                       
                         <td>
                             <!-- Edit Button -->
                             <a href="@Url.Action("Edit", "Gupshup", new { id = item.Id })"
@@ -141,6 +145,14 @@
                             <img src="@item.ImagePath" alt="Campaign Image" class="img-thumbnail" style="max-width: 100px;" />
                         </td>
                         <td>@item.Desciption</td>
+                        <td>
+                            <!-- Active Button -->
+                            <a href="@Url.Action("Delete", "Gupshup", new { id = item.Id })"
+                               class="btn btn-sm btn-outline-danger"
+                               onclick="return confirm('Are you sure you want to change this status?');">
+                                @item.Active
+                            </a>
+                        </td>
                     </tr>
                 }
             </tbody>
