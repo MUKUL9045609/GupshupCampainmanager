@@ -403,3 +403,33 @@ FodyWeavers.xsd
 **/bin/
 **/obj/
 
+
+## Ignore build results
+**/bin/
+**/obj/
+
+## Ignore user-specific files
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+## Ignore VS Code settings
+.vscode/
+
+## Ignore build outputs
+*.dll
+*.exe
+*.app
+*.log
+
+## Ignore NuGet packages
+*.nupkg
+packages/
+
+## Ignore other common files
+*.log
+*.tlog
+*.cache
+
+
