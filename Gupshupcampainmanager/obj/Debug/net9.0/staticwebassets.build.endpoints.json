@@ -3,13 +3,13 @@
   "ManifestType": "Build",
   "Endpoints": [
     {
-      "Route": "Gupshupcampainmanager.l6dqwm594n.styles.css",
-      "AssetFile": "Gupshupcampainmanager.styles.css.gz",
+      "Route": "Gupshupcampaignmanager.js3b1jkhu7.styles.css",
+      "AssetFile": "Gupshupcampaignmanager.styles.css.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.001821493625"
+          "Quality": "0.001818181818"
         }
       ],
       "ResponseHeaders": [
@@ -27,7 +27,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "548"
+          "Value": "549"
         },
         {
           "Name": "Content-Type",
@@ -35,15 +35,15 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"7OSvJpMU6sdbW83tLKrF9/wViyQaUASIh0fwR55yrGA=\""
+          "Value": "\"aGk2Q5LU3jHSz1e5GRFiXgxGysExChL0RL8OJgrZFgE=\""
         },
         {
           "Name": "ETag",
-          "Value": "W/\"w3LDljRxWCW56YMz+pO/WNAjq2OENJfwfJ2JH5ftVlk=\""
+          "Value": "W/\"DcuKEfRX49/5UmBx9NppsUysfqwqba11pVkDDeggtzE=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 21 Jun 2025 06:11:03 GMT"
+          "Value": "Sat, 21 Jun 2025 08:57:41 GMT"
         },
         {
           "Name": "Vary",
@@ -53,21 +53,21 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "l6dqwm594n"
+          "Value": "js3b1jkhu7"
         },
         {
           "Name": "integrity",
-          "Value": "sha256-w3LDljRxWCW56YMz+pO/WNAjq2OENJfwfJ2JH5ftVlk="
+          "Value": "sha256-DcuKEfRX49/5UmBx9NppsUysfqwqba11pVkDDeggtzE="
         },
         {
           "Name": "label",
-          "Value": "Gupshupcampainmanager.styles.css"
+          "Value": "Gupshupcampaignmanager.styles.css"
         }
       ]
     },
     {
-      "Route": "Gupshupcampainmanager.l6dqwm594n.styles.css",
-      "AssetFile": "Gupshupcampainmanager.styles.css",
+      "Route": "Gupshupcampaignmanager.js3b1jkhu7.styles.css",
+      "AssetFile": "Gupshupcampaignmanager.styles.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -80,7 +80,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "1139"
+          "Value": "1140"
         },
         {
           "Name": "Content-Type",
@@ -88,31 +88,31 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"w3LDljRxWCW56YMz+pO/WNAjq2OENJfwfJ2JH5ftVlk=\""
+          "Value": "\"DcuKEfRX49/5UmBx9NppsUysfqwqba11pVkDDeggtzE=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 21 Jun 2025 06:11:03 GMT"
+          "Value": "Sat, 21 Jun 2025 08:57:41 GMT"
         }
       ],
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "l6dqwm594n"
+          "Value": "js3b1jkhu7"
         },
         {
           "Name": "integrity",
-          "Value": "sha256-w3LDljRxWCW56YMz+pO/WNAjq2OENJfwfJ2JH5ftVlk="
+          "Value": "sha256-DcuKEfRX49/5UmBx9NppsUysfqwqba11pVkDDeggtzE="
         },
         {
           "Name": "label",
-          "Value": "Gupshupcampainmanager.styles.css"
+          "Value": "Gupshupcampaignmanager.styles.css"
         }
       ]
     },
     {
-      "Route": "Gupshupcampainmanager.l6dqwm594n.styles.css.gz",
-      "AssetFile": "Gupshupcampainmanager.styles.css.gz",
+      "Route": "Gupshupcampaignmanager.js3b1jkhu7.styles.css.gz",
+      "AssetFile": "Gupshupcampaignmanager.styles.css.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -129,7 +129,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "548"
+          "Value": "549"
         },
         {
           "Name": "Content-Type",
@@ -137,11 +137,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"7OSvJpMU6sdbW83tLKrF9/wViyQaUASIh0fwR55yrGA=\""
+          "Value": "\"aGk2Q5LU3jHSz1e5GRFiXgxGysExChL0RL8OJgrZFgE=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 21 Jun 2025 06:11:03 GMT"
+          "Value": "Sat, 21 Jun 2025 08:57:41 GMT"
         },
         {
           "Name": "Vary",
@@ -151,26 +151,26 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "l6dqwm594n"
+          "Value": "js3b1jkhu7"
         },
         {
           "Name": "integrity",
-          "Value": "sha256-7OSvJpMU6sdbW83tLKrF9/wViyQaUASIh0fwR55yrGA="
+          "Value": "sha256-aGk2Q5LU3jHSz1e5GRFiXgxGysExChL0RL8OJgrZFgE="
         },
         {
           "Name": "label",
-          "Value": "Gupshupcampainmanager.styles.css.gz"
+          "Value": "Gupshupcampaignmanager.styles.css.gz"
         }
       ]
     },
     {
-      "Route": "Gupshupcampainmanager.styles.css",
-      "AssetFile": "Gupshupcampainmanager.styles.css.gz",
+      "Route": "Gupshupcampaignmanager.styles.css",
+      "AssetFile": "Gupshupcampaignmanager.styles.css.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.001821493625"
+          "Quality": "0.001818181818"
         }
       ],
       "ResponseHeaders": [
@@ -188,7 +188,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "548"
+          "Value": "549"
         },
         {
           "Name": "Content-Type",
@@ -196,15 +196,15 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"7OSvJpMU6sdbW83tLKrF9/wViyQaUASIh0fwR55yrGA=\""
+          "Value": "\"aGk2Q5LU3jHSz1e5GRFiXgxGysExChL0RL8OJgrZFgE=\""
         },
         {
           "Name": "ETag",
-          "Value": "W/\"w3LDljRxWCW56YMz+pO/WNAjq2OENJfwfJ2JH5ftVlk=\""
+          "Value": "W/\"DcuKEfRX49/5UmBx9NppsUysfqwqba11pVkDDeggtzE=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 21 Jun 2025 06:11:03 GMT"
+          "Value": "Sat, 21 Jun 2025 08:57:41 GMT"
         },
         {
           "Name": "Vary",
@@ -214,13 +214,13 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-w3LDljRxWCW56YMz+pO/WNAjq2OENJfwfJ2JH5ftVlk="
+          "Value": "sha256-DcuKEfRX49/5UmBx9NppsUysfqwqba11pVkDDeggtzE="
         }
       ]
     },
     {
-      "Route": "Gupshupcampainmanager.styles.css",
-      "AssetFile": "Gupshupcampainmanager.styles.css",
+      "Route": "Gupshupcampaignmanager.styles.css",
+      "AssetFile": "Gupshupcampaignmanager.styles.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -233,7 +233,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "1139"
+          "Value": "1140"
         },
         {
           "Name": "Content-Type",
@@ -241,23 +241,23 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"w3LDljRxWCW56YMz+pO/WNAjq2OENJfwfJ2JH5ftVlk=\""
+          "Value": "\"DcuKEfRX49/5UmBx9NppsUysfqwqba11pVkDDeggtzE=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 21 Jun 2025 06:11:03 GMT"
+          "Value": "Sat, 21 Jun 2025 08:57:41 GMT"
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-w3LDljRxWCW56YMz+pO/WNAjq2OENJfwfJ2JH5ftVlk="
+          "Value": "sha256-DcuKEfRX49/5UmBx9NppsUysfqwqba11pVkDDeggtzE="
         }
       ]
     },
     {
-      "Route": "Gupshupcampainmanager.styles.css.gz",
-      "AssetFile": "Gupshupcampainmanager.styles.css.gz",
+      "Route": "Gupshupcampaignmanager.styles.css.gz",
+      "AssetFile": "Gupshupcampaignmanager.styles.css.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -274,7 +274,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "548"
+          "Value": "549"
         },
         {
           "Name": "Content-Type",
@@ -282,11 +282,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"7OSvJpMU6sdbW83tLKrF9/wViyQaUASIh0fwR55yrGA=\""
+          "Value": "\"aGk2Q5LU3jHSz1e5GRFiXgxGysExChL0RL8OJgrZFgE=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 21 Jun 2025 06:11:03 GMT"
+          "Value": "Sat, 21 Jun 2025 08:57:41 GMT"
         },
         {
           "Name": "Vary",
@@ -296,7 +296,7 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-7OSvJpMU6sdbW83tLKrF9/wViyQaUASIh0fwR55yrGA="
+          "Value": "sha256-aGk2Q5LU3jHSz1e5GRFiXgxGysExChL0RL8OJgrZFgE="
         }
       ]
     },

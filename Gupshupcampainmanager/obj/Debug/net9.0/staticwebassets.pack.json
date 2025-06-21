@@ -1,8 +1,8 @@
 {
   "Files": [
     {
-      "Id": "C:\\CampainManagerProject\\Gupshupcampainmanager\\obj\\Debug\\net9.0\\scopedcss\\projectbundle\\Gupshupcampainmanager.bundle.scp.css",
-      "PackagePath": "staticwebassets\\Gupshupcampainmanager.l6dqwm594n.bundle.scp.css"
+      "Id": "C:\\CampainManagerProject\\Gupshupcampainmanager\\obj\\Debug\\net9.0\\scopedcss\\projectbundle\\Gupshupcampaignmanager.bundle.scp.css",
+      "PackagePath": "staticwebassets\\Gupshupcampaignmanager.js3b1jkhu7.bundle.scp.css"
     },
     {
       "Id": "C:\\CampainManagerProject\\Gupshupcampainmanager\\wwwroot\\css\\site.css",
@@ -341,24 +341,24 @@
       "PackagePath": "staticwebassets\\uploads\\fdd68881-1701-4e1f-808d-2c9b2ef83942.png"
     },
     {
-      "Id": "obj\\Debug\\net9.0\\staticwebassets\\msbuild.Gupshupcampainmanager.Microsoft.AspNetCore.StaticWebAssetEndpoints.props",
+      "Id": "obj\\Debug\\net9.0\\staticwebassets\\msbuild.Gupshupcampaignmanager.Microsoft.AspNetCore.StaticWebAssetEndpoints.props",
       "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssetEndpoints.props"
     },
     {
-      "Id": "obj\\Debug\\net9.0\\staticwebassets\\msbuild.Gupshupcampainmanager.Microsoft.AspNetCore.StaticWebAssets.props",
+      "Id": "obj\\Debug\\net9.0\\staticwebassets\\msbuild.Gupshupcampaignmanager.Microsoft.AspNetCore.StaticWebAssets.props",
       "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
     },
     {
-      "Id": "obj\\Debug\\net9.0\\staticwebassets\\msbuild.build.Gupshupcampainmanager.props",
-      "PackagePath": "build\\Gupshupcampainmanager.props"
+      "Id": "obj\\Debug\\net9.0\\staticwebassets\\msbuild.build.Gupshupcampaignmanager.props",
+      "PackagePath": "build\\Gupshupcampaignmanager.props"
     },
     {
-      "Id": "obj\\Debug\\net9.0\\staticwebassets\\msbuild.buildMultiTargeting.Gupshupcampainmanager.props",
-      "PackagePath": "buildMultiTargeting\\Gupshupcampainmanager.props"
+      "Id": "obj\\Debug\\net9.0\\staticwebassets\\msbuild.buildMultiTargeting.Gupshupcampaignmanager.props",
+      "PackagePath": "buildMultiTargeting\\Gupshupcampaignmanager.props"
     },
     {
-      "Id": "obj\\Debug\\net9.0\\staticwebassets\\msbuild.buildTransitive.Gupshupcampainmanager.props",
-      "PackagePath": "buildTransitive\\Gupshupcampainmanager.props"
+      "Id": "obj\\Debug\\net9.0\\staticwebassets\\msbuild.buildTransitive.Gupshupcampaignmanager.props",
+      "PackagePath": "buildTransitive\\Gupshupcampaignmanager.props"
     }
   ],
   "ElementsToRemove": []

@@ -48,7 +48,6 @@ namespace Gupshupcampainmanager.Controllers
             return View();
         }
 
-
         [HttpPost]
         public async Task<IActionResult> SendMessage(IFormFile imageFile)
         {
@@ -67,7 +66,6 @@ namespace Gupshupcampainmanager.Controllers
 
             return View();
         }
-
         public IActionResult SaveCampaignTemplate()
         {
             ViewData["Title"] = "Save Campaign Details";
@@ -272,6 +270,14 @@ namespace Gupshupcampainmanager.Controllers
             }
             var fileStream = new FileStream(filePath, FileMode.Open, FileAccess.Read);
             return File(fileStream, "text/csv", "sample.csv");
+        }
+
+        [HttpGet]
+        public IActionResult ChangeCampaignStatus(int id , bool IsActive)
+        {
+            var campaign = _campaignRepository.DeActiveCampaign(id , IsActive);
+            TempData["ResponseMessage"] = "Campaign deleted successfully!";
+            return RedirectToAction("SavecampaignTemplate"); // Reload view
         }
     }
 }

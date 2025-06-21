@@ -8,6 +8,7 @@ namespace Gupshupcampainmanager.Repository.Interface
         Task<IEnumerable<CampaignDetails>> GetCampainDetails();
         Task<CampaignDetailsResponse> GetCampainDetailsById(int Id);
         Task<bool> DeletCampainDetailsById(int Id);
+        Task<bool> DeActiveCampaign(int Id, bool IsActive);
 
     }
 }
