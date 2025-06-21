@@ -1,0 +1,72 @@
+﻿@{
+    string pageTitle = ViewData["Title"]?.ToString() ?? "Save Campaine Details";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@pageTitle</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+
+        .container {
+            max-width: 600px;
+            margin-top: 50px;
+        }
+
+        .card {
+            border: none;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-primary {
+            background-color: #25D366;
+            border-color: #25D366;
+        }
+
+            .btn-primary:hover {
+                background-color: #1DA851;
+                border-color: #1DA851;
+            }
+
+        .alert {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card p-4">
+            <h2 class="text-center mb-4">@pageTitle</h2>
+            <form asp-controller="Campaign" asp-action="Createcampaign" method="post" enctype="multipart/form-data">
+                <div class="mb-3">
+                    <label for="csvFile" class="form-label">Upload File</label>
+                    <input type="file" name="csvFile" accept=".xlsx" />
+                </div>
+                @* <div class="mb-3">
+                    <label for="Description" class="form-label">Description</label>
+                    <input type="text" class="form-control" id="Description" name="Description" placeholder="e.g., home loan" value="home loan" required />
+                    <small class="form-text text-muted">This will appear in the message body (e.g., Avail [Description] at 5%).</small>
+                </div> *@
+                <button type="submit" class="btn btn-primary w-100">Save Campaine</button>
+            </form>
+
+            @*  @if (ViewBag.ResponseMessage != null)
+            {
+                <div class="alert @(ViewBag.AlertClass ?? "alert-info") mt-3" role="alert">
+                    @ViewBag.ResponseMessage
+                </div>
+            } *@
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

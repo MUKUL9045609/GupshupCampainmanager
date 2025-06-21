@@ -122,5 +122,41 @@ namespace Gupshupcampainmanager.Service
             return dict;
         }
 
+
+        public  async Task<List<Dictionary<string, string>>> ReadCsvAsync(IFormFile file)
+        {
+            var result = new List<Dictionary<string, string>>();
+
+            using (var stream = new StreamReader(file.OpenReadStream(), Encoding.UTF8))
+            {
+                string? headerLine = await stream.ReadLineAsync();
+                if (headerLine == null)
+                    return result;
+
+                var headers = headerLine.Split(',');
+                    
+                while (!stream.EndOfStream)
+                {
+                    var line = await stream.ReadLineAsync();
+                    if (line == null) continue;
+
+                    var values = line.Split(',');
+                    var rowDict = new Dictionary<string, string>();
+
+                    for (int i = 0; i < headers.Length; i++)
+                    {
+                        string key = headers[i].Trim();
+                        string value = i < values.Length ? values[i].Trim() : "";
+                        rowDict[key] = value;
+                    }
+
+                    result.Add(rowDict);
+                }
+            }
+
+            return result;
+        }
+
+
     }
 }

@@ -8,7 +8,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-builder.Services.AddHttpClient<GupshupApiService>();
+//builder.Services.AddHttpClient<GupshupApiService>();
 builder.Services.AddTransient<IGupshupApiService, GupshupApiService>();
 builder.Services.AddTransient<ICampaignRepository, CampaignRepository>();
 builder.Services.AddSingleton<DbContext>();
