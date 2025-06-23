@@ -55,7 +55,7 @@ namespace Gupshupcampainmanager.Controllers
             {
                 string result = await _gupshupApiService.SendWhatsAppMessage(imageFile);
 
-                ViewBag.ResponseMessage = "Message sent successfully! ";
+                ViewBag.ResponseMessage = result;
                 ViewBag.AlertClass = "alert-success";
             }
             catch (Exception ex)

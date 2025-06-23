@@ -6,6 +6,9 @@ using System.Text;
 using System.Net.Http;
 using Gupshupcampainmanager.Helpers;
 using Gupshupcampainmanager.Repository.Interface;
+using System.Globalization;
+using CsvHelper;
+using Gupshupcampaignmanager.Models;
 
 namespace Gupshupcampainmanager.Service
 {
@@ -14,10 +17,13 @@ namespace Gupshupcampainmanager.Service
         private static readonly HttpClient client = new HttpClient();
 
         private IConfiguration _configuration { get; }
+        private readonly ICampaignRepository _campaignRepository;
 
-        public GupshupApiService(IConfiguration configuration)
+
+        public GupshupApiService(IConfiguration configuration, ICampaignRepository campaignRepository)
         {
             _configuration = configuration;
+            _campaignRepository = campaignRepository;
         }
 
         public async Task<string> UploadImageToGupshup(string partnerAppToken, string appId, IFormFile imageFile)
@@ -70,50 +76,62 @@ namespace Gupshupcampainmanager.Service
 
         public async Task<string> SendWhatsAppMessage(IFormFile File)
         {
+            if (File == null || File.Length == 0)
+            {
+                return "Please upload a valid CSV file.";
+            }
+            var results = new List<string>();;
+
             try
             {
-                var offerText = "";
-
-                using var reader = new StreamReader(File.OpenReadStream());
-                bool isHeader = true;
-
-                while (!reader.EndOfStream)
+                var result = _campaignRepository.ActiveCampaign(true).Result;
+                using (var stream = File.OpenReadStream())
+                using (var reader = new StreamReader(stream))
+                using (var csv = new CsvReader(reader, CultureInfo.InvariantCulture))
                 {
-                    var line = await reader.ReadLineAsync();
+                    var records = csv.GetRecords<WhatsAppRecipient>();
+
+                    foreach (var record in records)
+                    {
+                        if (!string.IsNullOrWhiteSpace(record.phone.ToString()) && !string.IsNullOrWhiteSpace(record.Name.ToString()) && !string.IsNullOrWhiteSpace(record.Description.ToString()))
+                        {
+                            var templateId = _configuration["GupshupConfiguration:templateId"];
+                            var source = _configuration["GupshupConfiguration:source"];
+                            var appName = _configuration["GupshupConfiguration:appName"];
+                            var apiKey = _configuration["GupshupConfiguration:apiKey"];
+                            var SendSMSUrl = _configuration["GupshupConfiguration:SendSMSUrl"];
+                            var destination = record.phone.ToString();
+
+                            client.DefaultRequestHeaders.Clear();
+                            client.DefaultRequestHeaders.Add("apikey", apiKey);
+                            var formData = new NameValueCollection
+                            {
+                            { "channel", "whatsapp" },
+                            { "source", source },
+                            { "destination", destination },
+                            { "src.name", appName },
+                            { "template", "{\"id\":\"" + templateId + "\",\"params\":[\"" + record.Name + "\", \"" + result.Desciption + "\"]}" },
+                            { "message", "{\"image\":{\"link\":\"" + result.ImagePath + "\"},\"type\":\"image\"}" }
+                            };
+
+                            var content = new FormUrlEncodedContent(ToDictionary(formData));
+                            var response = await client.PostAsync(SendSMSUrl, content);
+
+                            if (response.IsSuccessStatusCode)
+                            {
+                                string responseBody = await response.Content.ReadAsStringAsync();
+                                
+                            }
+                            else
+                            {
+                                return $"Error: {response.StatusCode} - {await response.Content.ReadAsStringAsync()}";
+                            }
+                        }
+                       
+                    }
                 }
 
-                var templateId = _configuration["GupshupConfiguration:templateId"];
-                var source = _configuration["GupshupConfiguration:source"];
-                var appName = _configuration["GupshupConfiguration:appName"];
-                var apiKey = _configuration["GupshupConfiguration:apiKey"];
-                var SendSMSUrl = _configuration["GupshupConfiguration:SendSMSUrl"];
-                var imageHandleId = offerText;
-                var destination = "919552065205";
-
-                client.DefaultRequestHeaders.Clear();
-                client.DefaultRequestHeaders.Add("apikey", apiKey);
-                var formData = new NameValueCollection
-                {
-                { "channel", "whatsapp" },
-                { "source", source },
-                { "destination", destination },
-                { "src.name", appName },
-                { "template", "{\"id\":\"" + templateId + "\",\"params\":[\"" + imageHandleId + "\", \"" + offerText + "\"]}" },
-                { "message", "{\"image\":{\"link\":\"https://hrms.fortune4.org/images/ohrm_branding.png\"},\"type\":\"image\"}" }
-                };
-
-                var content = new FormUrlEncodedContent(ToDictionary(formData));
-                var response = await client.PostAsync(SendSMSUrl, content);
-
-                if (response.IsSuccessStatusCode)
-                {
-                    string responseBody = await response.Content.ReadAsStringAsync();
-                    return responseBody;
-                }
-                else
-                {
-                    return $"Error: {response.StatusCode} - {await response.Content.ReadAsStringAsync()}";
-                }
+                return "Message sent successfully!";
             }
             catch (Exception ex)
             {
