@@ -1,5 +1,5 @@
 ﻿@{
-    string pageTitle = ViewData["Title"]?.ToString() ?? "Save Campaine Details";
+    string pageTitle = ViewData["Title"]?.ToString() ?? "Save Campaign Details";
 }
 
 <!DOCTYPE html>
@@ -30,10 +30,10 @@
             border-color: #25D366;
         }
 
-            .btn-primary:hover {
-                background-color: #1DA851;
-                border-color: #1DA851;
-            }
+       .btn-primary:hover {
+           background-color: #1DA851;
+            border-color: #1DA851;
+       }
 
         .alert {
             margin-top: 20px;
@@ -47,14 +47,14 @@
             <form asp-controller="Campaign" asp-action="Createcampaign" method="post" enctype="multipart/form-data">
                 <div class="mb-3">
                     <label for="csvFile" class="form-label">Upload File</label>
-                    <input type="file" name="csvFile" accept=".xlsx" />
+                    <input type="file" name="csvFile" accept=".csv" />
                 </div>
                 @* <div class="mb-3">
                     <label for="Description" class="form-label">Description</label>
                     <input type="text" class="form-control" id="Description" name="Description" placeholder="e.g., home loan" value="home loan" required />
                     <small class="form-text text-muted">This will appear in the message body (e.g., Avail [Description] at 5%).</small>
                 </div> *@
-                <button type="submit" class="btn btn-primary w-100">Save Campaine</button>
+                <button type="submit" class="btn btn-primary w-100">Save Campaign</button>
             </form>
 
             @*  @if (ViewBag.ResponseMessage != null)

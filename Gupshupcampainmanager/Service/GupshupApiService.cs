@@ -14,10 +14,11 @@ namespace Gupshupcampainmanager.Service
         private static readonly HttpClient client = new HttpClient();
 
         private IConfiguration _configuration { get; }
-
-        public GupshupApiService(IConfiguration configuration)
+        private ICampaignRepository _campaignRepository { get; set; }
+        public GupshupApiService(IConfiguration configuration, ICampaignRepository campaignRepository)
         {
             _configuration = configuration;
+            _campaignRepository = campaignRepository;
         }
 
         public async Task<string> UploadImageToGupshup(string partnerAppToken, string appId, IFormFile imageFile)
@@ -122,7 +123,6 @@ namespace Gupshupcampainmanager.Service
             return dict;
         }
 
-
         public  async Task<List<Dictionary<string, string>>> ReadCsvAsync(IFormFile file)
         {
             var result = new List<Dictionary<string, string>>();
@@ -149,8 +149,17 @@ namespace Gupshupcampainmanager.Service
                         string value = i < values.Length ? values[i].Trim() : "";
                         rowDict[key] = value;
                     }
+                    var customerRequest = new CustomerReqeust
+                    {
+                        CustomerName = rowDict.ContainsKey("CustomerName") ? rowDict["CustomerName"] : "",
+                        MobileNo = rowDict.ContainsKey("MobileNo") ? rowDict["MobileNo"] : "",
+                        Address = rowDict.ContainsKey("Address") ? rowDict["Address"] : ""
+                    };
 
+                   
+                    await _campaignRepository.InsertCustomerAsync(customerRequest);
                     result.Add(rowDict);
+
                 }
             }
 

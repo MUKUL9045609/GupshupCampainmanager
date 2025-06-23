@@ -81,6 +81,32 @@ namespace Gupshupcampainmanager.Service
 
         }
 
+        public async Task<int> InsertCustomerAsync(CustomerReqeust request)
+        {
+            DynamicParameters parameters = new DynamicParameters();
+
+            parameters.Add("@CustomerName",request.CustomerName);
+            parameters.Add("@MobileNo", request.MobileNo);
+            parameters.Add("@address",request.Address);
+
+            return await _repository.InsertUpdateAsync("[sp_Insert_Customerdetails]", parameters);
+
+        }
+
+        public async Task<IEnumerable<CustomerViewModel>> ContextListAsync(CustomerReqeust request)
+        {
+            DynamicParameters parameters = new DynamicParameters();
+            parameters.Add("@CustomerName", request.CustomerName);
+            parameters.Add("@MobileNo", request.MobileNo);
+            parameters.Add("@StartDate", request.StartDate);
+            parameters.Add("@EndDate", request.EndDate);
+            parameters.Add("@pageNumber", request.PageNumber);
+            parameters.Add("@pageSize", request.PageSize);
+            parameters.Add("@orderBy", request.orderBy);
+            parameters.Add("@orderDirection", request.orderDirection);
+
+            return await _repository.GetListByValuesAsync<CustomerViewModel>("[sp_GetContextList]", parameters);
+        }
       
     }
 }
