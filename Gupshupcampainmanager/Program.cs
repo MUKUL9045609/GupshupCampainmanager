@@ -13,7 +13,7 @@ builder.Services.AddTransient<IGupshupApiService, GupshupApiService>();
 builder.Services.AddTransient<ICampaignRepository, CampaignRepository>();
 builder.Services.AddSingleton<DbContext>();
 builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
-
+//builder.Services.AddLogging();
 builder.Services.AddCors(options =>
 {
     options.AddPolicy(name: "MyAllowSpecificOrigins",
