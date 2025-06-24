@@ -1,12 +1,14 @@
 ﻿using Gupshupcampainmanager.Models;
 using Gupshupcampainmanager.Repository.Interface;
 using Gupshupcampainmanager.Service;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.DataProtection.KeyManagement;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Gupshupcampainmanager.Controllers
 {
+    [Authorize]
     public class GupshupController : Controller
     {
 

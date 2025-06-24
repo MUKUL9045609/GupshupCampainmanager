@@ -3,14 +3,39 @@ using Gupshupcampainmanager.Models;
 using Gupshupcampainmanager.Persistence;
 using Gupshupcampainmanager.Repository.Interface;
 using Gupshupcampainmanager.Service;
+using Microsoft.AspNetCore.Authorization;
 
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddSession(options =>
+{
+    options.IdleTimeout = TimeSpan.FromMinutes(30);
+    options.Cookie.HttpOnly = true; 
+    options.Cookie.IsEssential = true; 
+});
+
+builder.Services.AddAuthentication("Cookie")
+    .AddCookie("Cookie", options =>
+    {
+        options.LoginPath = "/Account/Login";
+        options.AccessDeniedPath = "/Account/AccessDenied";
+        options.ExpireTimeSpan = TimeSpan.FromMinutes(30);
+    });
+
+builder.Services.AddAuthorization(options =>
+{
+    var userAuthPolicyBuilder = new AuthorizationPolicyBuilder("Cookie");
+    options.DefaultPolicy = userAuthPolicyBuilder
+                        .RequireAuthenticatedUser()
+                        .Build();
+});
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 //builder.Services.AddHttpClient<GupshupApiService>();
 builder.Services.AddTransient<IGupshupApiService, GupshupApiService>();
 builder.Services.AddTransient<ICampaignRepository, CampaignRepository>();
+builder.Services.AddTransient<IAuthService, AuthService>();
 builder.Services.AddSingleton<DbContext>();
 builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
 
@@ -24,6 +49,7 @@ builder.Services.AddCors(options =>
 });
 
 builder.Services.AddControllers();
+builder.Services.AddSession();
 
 
 var app = builder.Build();
@@ -40,12 +66,12 @@ app.UseHttpsRedirection();
 app.UseRouting();
 app.UseAuthorization();
 app.UseStaticFiles();
-
+app.UseSession();
 app.MapStaticAssets();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Gupshup}/{action=SavecampaignTemplate}")
+    pattern: "{controller=Auth}/{action=Login}")
     .WithStaticAssets();
 
 

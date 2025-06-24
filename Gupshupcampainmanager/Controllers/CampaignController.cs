@@ -1,11 +1,13 @@
 ﻿using Gupshupcampainmanager.Models;
 using Gupshupcampainmanager.Repository.Interface;
 using Gupshupcampainmanager.Service;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Routing;
 using OfficeOpenXml;
 namespace Gupshupcampainmanager.Controllers
 {
+    [Authorize]
     public class CampaignController :  Controller
     {
 
