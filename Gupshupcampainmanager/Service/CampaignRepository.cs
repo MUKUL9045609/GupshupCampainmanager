@@ -53,7 +53,7 @@ namespace Gupshupcampainmanager.Service
 
                 parameters.Add("Id", Id);
 
-                return await _repository.GetByValuesAsync<CampaignDetailsResponse>("sp_Get_CampaignDetails_ById", parameters);
+                return await _repository.GetByValuesAsync<CampaignDetailsResponse>("Sp_Get_CampaignDetails_ById", parameters);
             }
             catch (Exception ex)
             {
@@ -70,7 +70,7 @@ namespace Gupshupcampainmanager.Service
 
                 parameters.Add("Id", Id);
 
-                 await _repository.DeleteAsync("sp_Delete_CampaignDetails_ById", parameters);
+                 await _repository.DeleteAsync("Sp_Delete_CampaignDetails_ById", parameters);
 
                 return true;
             }
@@ -81,24 +81,31 @@ namespace Gupshupcampainmanager.Service
 
         }
 
-        public async Task<bool> DeActiveCampaign(int Id , bool IsActive)
+        public async Task<int> InsertCustomerAsync(CustomerReqeust request)
         {
-            try
-            {
-                DynamicParameters parameters = new DynamicParameters();
+            DynamicParameters parameters = new DynamicParameters();
 
-                parameters.Add("Id", Id);
-                parameters.Add("IsActive", IsActive);
+            parameters.Add("@CustomerName",request.CustomerName);
+            parameters.Add("@MobileNo", request.MobileNo);
+            parameters.Add("@address",request.Address);
 
-                await _repository.DeleteAsync("Sp_Change_Campaign_Status", parameters);
+            return await _repository.InsertUpdateAsync("[sp_Insert_Customerdetails]", parameters);
 
-                return true;
-            }
-            catch (Exception ex)
-            {
-                return false;
-            }
+        }
 
+        public async Task<IEnumerable<CustomerViewModel>> ContextListAsync(CustomerReqeust request)
+        {
+            DynamicParameters parameters = new DynamicParameters();
+            parameters.Add("@CustomerName", request.CustomerName);
+            parameters.Add("@MobileNo", request.MobileNo);
+            parameters.Add("@StartDate", request.StartDate);
+            parameters.Add("@EndDate", request.EndDate);
+            parameters.Add("@pageNumber", request.PageNumber);
+            parameters.Add("@pageSize", request.PageSize);
+            parameters.Add("@orderBy", request.orderBy);
+            parameters.Add("@orderDirection", request.orderDirection);
+
+            return await _repository.GetListByValuesAsync<CustomerViewModel>("[sp_GetContextList]", parameters);
         }
 
         public async Task<CampaignDetailsResponse> ActiveCampaign(bool IsActive)

@@ -1,19 +1,25 @@
-﻿using Gupshupcampainmanager.Repository.Interface;
+﻿using Gupshupcampainmanager.Models;
+using Gupshupcampainmanager.Repository.Interface;
 using Gupshupcampainmanager.Service;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Routing;
 using OfficeOpenXml;
 namespace Gupshupcampainmanager.Controllers
 {
+    [Authorize]
     public class CampaignController :  Controller
     {
 
         private readonly IGupshupApiService _gupshupApiService;
         private readonly IConfiguration _configuration;
+        private readonly ICampaignRepository _campaignrepo;
 
-        public CampaignController(IGupshupApiService gupshupApiService, IConfiguration configuration)
+        public CampaignController(IGupshupApiService gupshupApiService, IConfiguration configuration, ICampaignRepository campaignrepo)
         {
             _gupshupApiService = gupshupApiService;
             _configuration = configuration;
+            _campaignrepo = campaignrepo;
         }
 
         [HttpGet]
@@ -22,6 +28,16 @@ namespace Gupshupcampainmanager.Controllers
             return View();
         }
 
+        [HttpGet]
+        public IActionResult CustomerList()
+        {
+            var List =_campaignrepo.ContextListAsync(new Models.CustomerReqeust()).Result;
+            var customerlist = new customerResponse
+            {
+                Customers = List
+            };
+            return View(customerlist);
+        }
         [HttpPost]
         public async Task<IActionResult> Createcampaign(IFormFile csvFile)
         {
@@ -31,7 +47,7 @@ namespace Gupshupcampainmanager.Controllers
                 ViewBag.ExcelData = csvData; 
             }
 
-            return View();
+            return Redirect("CustomerList");
         }
     }
 }

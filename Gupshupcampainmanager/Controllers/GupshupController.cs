@@ -1,9 +1,14 @@
 ﻿using Gupshupcampainmanager.Models;
 using Gupshupcampainmanager.Repository.Interface;
+using Gupshupcampainmanager.Service;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.DataProtection.KeyManagement;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Gupshupcampainmanager.Controllers
 {
+    [Authorize]
     public class GupshupController : Controller
     {
 
@@ -44,16 +49,17 @@ namespace Gupshupcampainmanager.Controllers
 
         public IActionResult SendMessage()
         {
-            ViewData["Title"] = "Bulk Upload";
+            ViewData["Title"] = "Send WhatsApp Message";
             return View();
         }
 
+
         [HttpPost]
-        public async Task<IActionResult> SendMessage(IFormFile imageFile)
+        public async Task<IActionResult> SendMessage(IFormFile imageFile, string Description)
         {
             try
             {
-                string result = await _gupshupApiService.SendWhatsAppMessage(imageFile);
+                string result = await _gupshupApiService.SendWhatsAppMessage("","","", "", "", "","",""); ;
 
                 ViewBag.ResponseMessage = result;
                 ViewBag.AlertClass = "alert-success";
@@ -66,13 +72,18 @@ namespace Gupshupcampainmanager.Controllers
 
             return View();
         }
+
+
         public IActionResult SaveCampaignTemplate()
         {
             ViewData["Title"] = "Save Campaign Details";
+
             var campaigns = _campaignRepository.GetCampainDetails();
             ViewBag.CampaignList = campaigns.Result.ToList();
+
             return View();
         }
+
 
         [HttpPost]
         public async Task<IActionResult> SaveCampaignTemplate(IFormFile imageFile, string Description)
@@ -155,6 +166,8 @@ namespace Gupshupcampainmanager.Controllers
 
             return View("SaveCampaignTemplate");
         }
+
+
         public async Task<IActionResult> UpdatecampaignTemplate(IFormFile imageFile, string Description , int Id)
         {
             ViewData["Title"] = "Save campaign Details";
@@ -238,6 +251,9 @@ namespace Gupshupcampainmanager.Controllers
 
             return View("SaveCampaignTemplate");
         }
+
+
+
         public IActionResult Edit(int id)
         {
             var campaign = _campaignRepository.GetCampainDetailsById(id); 
@@ -254,28 +270,11 @@ namespace Gupshupcampainmanager.Controllers
 
             return View("SavecampaignTemplate"); 
         }
+
         [HttpGet]
         public IActionResult Delete(int id)
         {
             var campaign = _campaignRepository.DeletCampainDetailsById(id);
-            TempData["ResponseMessage"] = "Campaign deleted successfully!";
-            return RedirectToAction("SavecampaignTemplate"); // Reload view
-        }
-        public IActionResult DownloadSampleFile()
-        {
-            var filePath = Path.Combine(_webHostEnvironment.WebRootPath, "sample.csv");
-            if (!System.IO.File.Exists(filePath))
-            {
-                return NotFound("Sample file not found.");
-            }
-            var fileStream = new FileStream(filePath, FileMode.Open, FileAccess.Read);
-            return File(fileStream, "text/csv", "sample.csv");
-        }
-
-        [HttpGet]
-        public IActionResult ChangeCampaignStatus(int id , bool IsActive)
-        {
-            var campaign = _campaignRepository.DeActiveCampaign(id , IsActive);
             TempData["ResponseMessage"] = "Campaign deleted successfully!";
             return RedirectToAction("SavecampaignTemplate"); // Reload view
         }

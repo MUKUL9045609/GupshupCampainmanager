@@ -445,9 +445,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\CampainManagerProject\\CampainWhatsappMassageSenderService\\CampaignWhatsappMassageSenderService.csproj",
-      "projectName": "CampaignWhatsappMassageSenderService",
-      "projectPath": "C:\\CampainManagerProject\\CampainWhatsappMassageSenderService\\CampaignWhatsappMassageSenderService.csproj",
+      "projectUniqueName": "C:\\CampainManagerProject\\CampainWhatsappMassageSenderService\\CampainWhatsappMassageSenderService.csproj",
+      "projectName": "CampainWhatsappMassageSenderService",
+      "projectPath": "C:\\CampainManagerProject\\CampainWhatsappMassageSenderService\\CampainWhatsappMassageSenderService.csproj",
       "packagesPath": "C:\\Users\\Fortune4\\.nuget\\packages\\",
       "outputPath": "C:\\CampainManagerProject\\CampainWhatsappMassageSenderService\\obj\\",
       "projectStyle": "PackageReference",

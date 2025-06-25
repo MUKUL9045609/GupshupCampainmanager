@@ -1,5 +1,5 @@
 ﻿@{
-    string pageTitle = ViewData["Title"]?.ToString() ?? "Bulk Upload";
+    string pageTitle = ViewData["Title"]?.ToString() ?? "Send WhatsApp Message";
 }
 
 <!DOCTYPE html>
@@ -47,18 +47,15 @@
             <form asp-controller="Gupshup" asp-action="SendMessage" method="post" enctype="multipart/form-data">
                 <div class="mb-3">
                     <label for="imageFile" class="form-label">Upload Image</label>
-                    <input type="file" class="form-control" id="imageFile" name="imageFile" accept="CSV" required />
-                    <small class="form-text text-muted">Supported formats: CSV (max 5MB).</small>
-                    <button type="button"
-                            onclick="window.location.href='@Url.Action("DownloadSampleFile", "Gupshup")'"
-                            style="display: flex; margin-top: 6px; background: none; border: none; color: blue; text-decoration: underline; cursor: pointer; padding: 0px; font-size: inherit;">
-                        Download Sample File
-                    </button>
-                    <br />
-                    <div class="d-flex justify-content-center">
-                        <button type="submit" class="btn btn-primary flex-fill">Save </button>
-                    </div>
+                    <input type="file" class="form-control" id="imageFile" name="imageFile" accept="image/*" required />
+                    <small class="form-text text-muted">Supported formats: PNG, JPG (max 5MB).</small>
                 </div>
+                <div class="mb-3">
+                    <label for="Description" class="form-label">Description</label>
+                    <input type="text" class="form-control" id="Description" name="Description" placeholder="e.g., home loan" value="home loan" required />
+                    <small class="form-text text-muted">This will appear in the message body (e.g., Avail [Description] at 5%).</small>
+                </div>
+                <button type="submit" class="btn btn-primary w-100">Send Message</button>
             </form>
 
             @if (ViewBag.ResponseMessage != null)

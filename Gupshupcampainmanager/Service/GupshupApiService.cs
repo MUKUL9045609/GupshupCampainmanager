@@ -74,7 +74,7 @@ namespace Gupshupcampainmanager.Service
             }
         }
 
-        public async Task<string> SendWhatsAppMessage(IFormFile File)
+        public async Task<string> SendWhatsAppMessage(string apiKey, string source, string destination, string appName, string templateId, string imageHandleId, string offerText, string SendSMSUrl)
         {
             if (File == null || File.Length == 0)
             {
@@ -175,8 +175,17 @@ namespace Gupshupcampainmanager.Service
                         string value = i < values.Length ? values[i].Trim() : "";
                         rowDict[key] = value;
                     }
+                    var customerRequest = new CustomerReqeust
+                    {
+                        CustomerName = rowDict.ContainsKey("CustomerName") ? rowDict["CustomerName"] : "",
+                        MobileNo = rowDict.ContainsKey("MobileNo") ? rowDict["MobileNo"] : "",
+                        Address = rowDict.ContainsKey("Address") ? rowDict["Address"] : ""
+                    };
 
+                   
+                    await _campaignRepository.InsertCustomerAsync(customerRequest);
                     result.Add(rowDict);
+
                 }
             }
 
