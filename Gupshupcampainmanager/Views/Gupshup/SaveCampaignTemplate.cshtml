@@ -96,6 +96,7 @@
                             <th>#</th>
                             <th>Image</th>
                             <th>Description</th>
+                            <th>Status</th>
                                 <th>Edit</th>
                                 <th>Delete</th>
                         </tr>
@@ -111,6 +112,16 @@
                                     <img src="@item.ImagePath" alt="Campaign Image" class="img-thumbnail" style="max-width: 100px;" />
                                 </td>
                                 <td>@item.Desciption</td>
+                                <td>
+                            <!-- Active Button -->
+                                    <a href="@Url.Action("ChangeCampaignStatus", "Gupshup", new { id = item.Id, IsActive = !item.IsActive })"
+                                       class="btn btn-sm btn-outline-danger"
+                                       onclick="return confirm('Are you sure you want to change the status to @(item.IsActive ? "Inactive" : "Active")?');">
+                                        @(item.IsActive ? "Deactivate" : "Activate")
+                                    </a>
+                                 </td>
+                   
+                              
                                     <td>
                                         <!-- Edit Button -->
                                         <a href="@Url.Action("Edit", "Gupshup", new { id = item.Id })"
