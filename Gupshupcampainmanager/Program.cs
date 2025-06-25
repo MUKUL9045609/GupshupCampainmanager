@@ -17,9 +17,13 @@ builder.Services.AddSession(options =>
 builder.Services.AddAuthentication("Cookie")
     .AddCookie("Cookie", options =>
     {
-        options.LoginPath = "/Account/Login";
+        options.LoginPath = "/Auth/Login";
         options.AccessDeniedPath = "/Account/AccessDenied";
-        options.ExpireTimeSpan = TimeSpan.FromMinutes(30);
+        //options.ExpireTimeSpan = TimeSpan.FromMinutes(10);
+        options.Cookie.IsEssential = true;
+        options.Cookie.HttpOnly = true;
+        options.SlidingExpiration = false;
+
     });
 
 builder.Services.AddAuthorization(options =>
@@ -64,6 +68,7 @@ if (!app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 app.UseRouting();
+app.UseAuthentication();
 app.UseAuthorization();
 app.UseStaticFiles();
 app.UseSession();
@@ -71,7 +76,7 @@ app.MapStaticAssets();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Auth}/{action=Login}")
+    pattern: "{controller=Gupshup}/{action=SaveCampaignTemplate}")
     .WithStaticAssets();
 
 

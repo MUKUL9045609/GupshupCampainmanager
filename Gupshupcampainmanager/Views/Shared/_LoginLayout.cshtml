@@ -5,44 +5,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - Campaign Manager</title>
     <script type="importmap"></script>
-    
+
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link  rel="stylesheet" href="~/css/style.css" />
+    <link rel="stylesheet" href="~/css/style.css" />
     <link rel="stylesheet" href="~/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/Gupshupcampainmanager.styles.css" asp-append-version="true" />   
+    <link rel="stylesheet" href="~/Gupshupcampainmanager.styles.css" asp-append-version="true" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
-   <link  rel="stylesheet" href="~/lib/fonts/circular-std/style.css"/>
+    <link rel="stylesheet" href="~/lib/fonts/circular-std/style.css" />
     <link href="../assets/vendor/fonts/circular-std/style.css" rel="stylesheet">
 
 </head>
 <body>
-    
-    <div class="dashboard-main-wrapper">
-                <div class="dashboard-header">
-                    @if (ViewData["Navbar"] as bool? != false)
-                    {
-                        @await Html.PartialAsync("_Navbar")
-                    }
-                </div>
-                @if (ViewData["ShowSidebar"] as bool? != false)
-                {
-                    @await Html.PartialAsync("_Sidebar")
-                }
 
-               
-                <div class="container-fluid dashboard-content">
-                    <div class="dashboard-wrapper">
-                        @* <div class="dashboard-ecommerce"> *@
-                           @*  <div class="container-fluid dashboard-content"> *@
-                                @RenderBody()
-                            @* </div> *@
-                       @*  </div> *@
-                    </div>
-                </div>
-               
+    <div class="dashboard-main-wrapper">
+        <div class="dashboard-header">
+            @if (ViewData["Navbar"] as bool? != false)
+            {
+                @await Html.PartialAsync("_Navbar")
+            }
+        </div>
+        @if (ViewData["ShowSidebar"] as bool? != false)
+        {
+            @await Html.PartialAsync("_Sidebar")
+        }
+        @RenderBody()
+        
     </div>
 
-@* 
+    @* 
     <footer >
         <div class="container">
             &copy; 2025 - Gupshupcampainmanager - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>

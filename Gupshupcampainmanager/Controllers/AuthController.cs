@@ -1,6 +1,7 @@
 ﻿using Gupshupcampainmanager.Models;
 using Gupshupcampainmanager.Repository.Interface;
 using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
 
@@ -13,7 +14,7 @@ namespace Gupshupcampainmanager.Controllers
         {
             _authService = authService;
         }
-
+        [AllowAnonymous]
         public IActionResult Login()
         {
             ViewData["Navbar"] = false;

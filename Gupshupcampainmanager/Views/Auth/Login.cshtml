@@ -1,10 +1,8 @@
 ﻿@model Gupshupcampainmanager.Models.LoginResponse
 @{
     string pageTitle = ViewData["Title"]?.ToString() ?? "Login";
+    Layout = "_LoginLayout";
 }
-
-
-
 
 @if (ViewBag.Error != null)
 {
@@ -16,7 +14,8 @@
         <div class="card-header text-center">
             @*<a href="../index.html">
            <img class="logo-img" src="../assets/images/logo.png" alt="logo"></a> *@
-            <span class="splash-description">Please enter your user information.</span></div>
+            <span class="splash-description">Please enter your user information.</span>
+        </div>
         <div class="card-body">
             <form asp-action="Login" method="post">
                 <div class="form-group">
@@ -46,6 +45,7 @@
         </div>
     </div>
 </div>
+
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
