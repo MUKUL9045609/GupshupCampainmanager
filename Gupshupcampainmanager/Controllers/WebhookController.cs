@@ -2,6 +2,8 @@
 using System.IO;
 using System.Text.Json;
 using Microsoft.Extensions.Logging;
+using Gupshupcampaignmanager.Models.Common;
+using Gupshupcampainmanager.Repository.Interface;
 
 namespace Gupshupcampaignmanager.Controllers
 {
@@ -10,46 +12,48 @@ namespace Gupshupcampaignmanager.Controllers
     public class WebhookController : ControllerBase
     {
         private readonly ILogger<WebhookController> _logger;
+        private readonly ICampaignRepository _campaignRepository;
 
-        public WebhookController(ILogger<WebhookController> logger)
+        public WebhookController(ILogger<WebhookController> logger, ICampaignRepository campaignRepository)
         {
             _logger = logger;
+            _campaignRepository = campaignRepository;
         }
 
         [HttpPost("message-status")]
-        public IActionResult ReceiveMessageStatus()
+        public async Task<IActionResult> ReceiveMessageStatus()
         {
             using var reader = new StreamReader(Request.Body);
-            var body = reader.ReadToEndAsync().Result;
-            var data = JsonSerializer.Deserialize<Dictionary<string, object>>(body);
+            var body = await reader.ReadToEndAsync();
 
-            
-            _logger.LogInformation("Received webhook data: {Data}", body);
-
-            
-            if (data.TryGetValue("type", out var type) && data.TryGetValue("status", out var status))
+            try
             {
-                string messageStatus = status.ToString();
-                _logger.LogInformation("Message status: {Type} - {Status}", type, messageStatus);
-
-                switch (messageStatus.ToLower())
+                var messageStatus = JsonSerializer.Deserialize<SmsStatusWebhookPayload>(body);
+                if (messageStatus == null)
                 {
-                    case "sent":
-
-                        break;
-                    case "delivered":
-
-                        break;
-                    case "read":
-                        
-                        break;
-                    case "failed":
-                        
-                        break;
+                    _logger.LogWarning("Webhook payload deserialization returned null.");
+                    return BadRequest();
                 }
-            }
 
-            return Ok();
+                _logger.LogInformation("Received SMS status update: {@Payload}", messageStatus);
+
+                SmsStatusRequest request = new SmsStatusRequest();
+
+                request.Status = messageStatus.Status?.ToLower();
+                request.MessageId = messageStatus.MessageId;
+                request.PhoneNumber = messageStatus.PhoneNumber;
+                request.Timestamp = DateTime.Parse(messageStatus.Timestamp);
+                request.FailureReason = messageStatus.FailureReason;
+
+                await _campaignRepository.InsertOrUpdateSmsStatusAsync(request); 
+
+                return Ok();
+            }
+            catch (JsonException ex)
+            {
+                _logger.LogError(ex, "Failed to deserialize webhook payload.");
+                return BadRequest("Invalid JSON");
+            }
         }
     }
 }

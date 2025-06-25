@@ -49,5 +49,13 @@ namespace Gupshupcampainmanager.Controllers
 
             return Redirect("CustomerList");
         }
+
+        [HttpGet]
+        public IActionResult ChangeCampaignStatus(int id, bool IsActive)
+        {
+            var campaign = _campaignrepo.DeActiveCampaign(id, IsActive);
+            TempData["ResponseMessage"] = "Campaign deleted successfully!";
+            return RedirectToAction("SavecampaignTemplate"); // Reload view
+        }
     }
 }
