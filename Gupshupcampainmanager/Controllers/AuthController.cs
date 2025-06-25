@@ -16,6 +16,8 @@ namespace Gupshupcampainmanager.Controllers
 
         public IActionResult Login()
         {
+            ViewData["Navbar"] = false;
+            ViewData["ShowSidebar"] = false;
             return View();
         }
 
