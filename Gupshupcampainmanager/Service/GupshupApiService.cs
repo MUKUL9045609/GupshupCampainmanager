@@ -9,6 +9,8 @@ using Gupshupcampainmanager.Repository.Interface;
 using System.Globalization;
 using CsvHelper;
 using Gupshupcampaignmanager.Models;
+using Gupshupcampaignmanager.Models.Common;
+using Gupshupcampainmanager.Models.Common;
 
 namespace Gupshupcampainmanager.Service
 {
@@ -80,7 +82,7 @@ namespace Gupshupcampainmanager.Service
             {
                 return "Please upload a valid CSV file.";
             }
-            var results = new List<string>(); ;
+            var results = new List<string>(); 
 
             try
             {
@@ -121,11 +123,22 @@ namespace Gupshupcampainmanager.Service
                             {
                                 string responseBody = await response.Content.ReadAsStringAsync();
 
+                                SmsApiResponse apiResponse = JsonConvert.DeserializeObject<SmsApiResponse>(responseBody);
+
+                                SmsStatusRequest request = new SmsStatusRequest
+                                {
+                                    MessageId = apiResponse.MessageId,
+                                    Status = apiResponse.Status
+                                };
+
+                                await _campaignRepository.InsertOrUpdateSmsStatusAsync(request);
+
                             }
                             else
                             {
                                 return $"Error: {response.StatusCode} - {await response.Content.ReadAsStringAsync()}";
                             }
+                            
                         }
 
                     }
