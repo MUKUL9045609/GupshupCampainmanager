@@ -6,10 +6,6 @@
 **/bin/
 **/obj/
 
-# Ignore build output for Gupshupcampainmanager specifically
-Gupshupcampainmanager/bin/
-Gupshupcampainmanager/obj/
-
 # Ignore debug folders
 **/Debug/
 **/Release/
