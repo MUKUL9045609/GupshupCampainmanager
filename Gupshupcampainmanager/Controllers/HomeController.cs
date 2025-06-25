@@ -1,9 +1,11 @@
 using System.Diagnostics;
 using Gupshupcampainmanager.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Gupshupcampainmanager.Controllers
 {
+    [Authorize]
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;

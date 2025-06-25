@@ -49,6 +49,19 @@ namespace Gupshupcampainmanager.Controllers
             ViewBag.Error = "Invalid username or password";
             return View();
         }
-       
+
+
+        [Authorize]
+        public async Task<IActionResult> Logout()
+        {
+            // Sign out the user
+            await HttpContext.SignOutAsync("Cookie");
+            // Clear session if needed
+            HttpContext.Session.Clear();
+            // Redirect to login page
+            return RedirectToAction("Login", "Auth");
+        }
+
+
     }
 }
