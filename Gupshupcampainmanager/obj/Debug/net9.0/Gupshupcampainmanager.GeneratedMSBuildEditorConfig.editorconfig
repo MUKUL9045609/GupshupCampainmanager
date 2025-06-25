@@ -9,73 +9,77 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = Gupshupcampainmanager
 build_property.RootNamespace = Gupshupcampainmanager
-build_property.ProjectDir = C:\ashwinFortune4\campaignmanager\Gupshupcampainmanager\
+build_property.ProjectDir = C:\CampainManagerProject\Gupshupcampainmanager\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 9.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\ashwinFortune4\campaignmanager\Gupshupcampainmanager
+build_property.MSBuildProjectDirectory = C:\CampainManagerProject\Gupshupcampainmanager
 build_property._RazorSourceGeneratorDebug = 
 build_property.EffectiveAnalysisLevelStyle = 9.0
 build_property.EnableCodeStyleSeverity = 
 
-[C:/ashwinFortune4/campaignmanager/Gupshupcampainmanager/Views/Auth/Login.cshtml]
+[C:/CampainManagerProject/Gupshupcampainmanager/Views/Auth/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0aFxMb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/ashwinFortune4/campaignmanager/Gupshupcampainmanager/Views/Campaign/Createcampaign.cshtml]
+[C:/CampainManagerProject/Gupshupcampainmanager/Views/Campaign/Createcampaign.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FtcGFpZ25cQ3JlYXRlY2FtcGFpZ24uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/ashwinFortune4/campaignmanager/Gupshupcampainmanager/Views/Campaign/CustomerList.cshtml]
+[C:/CampainManagerProject/Gupshupcampainmanager/Views/Campaign/CustomerList.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FtcGFpZ25cQ3VzdG9tZXJMaXN0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/ashwinFortune4/campaignmanager/Gupshupcampainmanager/Views/Gupshup/CreateTemplate.cshtml]
+[C:/CampainManagerProject/Gupshupcampainmanager/Views/Gupshup/CreateTemplate.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR3Vwc2h1cFxDcmVhdGVUZW1wbGF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/ashwinFortune4/campaignmanager/Gupshupcampainmanager/Views/Gupshup/SaveCampaignTemplate.cshtml]
+[C:/CampainManagerProject/Gupshupcampainmanager/Views/Gupshup/SaveCampaignTemplate.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR3Vwc2h1cFxTYXZlQ2FtcGFpZ25UZW1wbGF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/ashwinFortune4/campaignmanager/Gupshupcampainmanager/Views/Gupshup/SendMessage.cshtml]
+[C:/CampainManagerProject/Gupshupcampainmanager/Views/Gupshup/SendMessage.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR3Vwc2h1cFxTZW5kTWVzc2FnZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/ashwinFortune4/campaignmanager/Gupshupcampainmanager/Views/Home/Index.cshtml]
+[C:/CampainManagerProject/Gupshupcampainmanager/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/ashwinFortune4/campaignmanager/Gupshupcampainmanager/Views/Home/Privacy.cshtml]
+[C:/CampainManagerProject/Gupshupcampainmanager/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/ashwinFortune4/campaignmanager/Gupshupcampainmanager/Views/Shared/Error.cshtml]
+[C:/CampainManagerProject/Gupshupcampainmanager/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/ashwinFortune4/campaignmanager/Gupshupcampainmanager/Views/Shared/_Navbar.cshtml]
+[C:/CampainManagerProject/Gupshupcampainmanager/Views/Shared/_LoginLayout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Mb2dpbkxheW91dC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/CampainManagerProject/Gupshupcampainmanager/Views/Shared/_Navbar.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9OYXZiYXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/ashwinFortune4/campaignmanager/Gupshupcampainmanager/Views/Shared/_Sidebar.cshtml]
+[C:/CampainManagerProject/Gupshupcampainmanager/Views/Shared/_Sidebar.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9TaWRlYmFyLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/ashwinFortune4/campaignmanager/Gupshupcampainmanager/Views/Shared/_ValidationScriptsPartial.cshtml]
+[C:/CampainManagerProject/Gupshupcampainmanager/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/ashwinFortune4/campaignmanager/Gupshupcampainmanager/Views/_ViewImports.cshtml]
+[C:/CampainManagerProject/Gupshupcampainmanager/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/ashwinFortune4/campaignmanager/Gupshupcampainmanager/Views/_ViewStart.cshtml]
+[C:/CampainManagerProject/Gupshupcampainmanager/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/ashwinFortune4/campaignmanager/Gupshupcampainmanager/Views/Shared/_Layout.cshtml]
+[C:/CampainManagerProject/Gupshupcampainmanager/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-vrns16n5aq

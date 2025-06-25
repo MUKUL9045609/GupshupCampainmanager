@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("CampainWhatsappMassageSenderService")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+447579ed54ddd87b7932ff43c0efcf33c62d92ec")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f5775908af8cf43cc43945dd778da3db9dd23581")]
 [assembly: System.Reflection.AssemblyProductAttribute("CampainWhatsappMassageSenderService")]
 [assembly: System.Reflection.AssemblyTitleAttribute("CampainWhatsappMassageSenderService")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
