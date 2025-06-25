@@ -55,11 +55,11 @@ namespace Gupshupcampainmanager.Controllers
 
 
         [HttpPost]
-        public async Task<IActionResult> SendMessage(IFormFile imageFile, string Description)
+        public async Task<IActionResult> SendMessage(IFormFile imageFile)
         {
             try
             {
-                string result = await _gupshupApiService.SendWhatsAppMessage("","","", "", "", "","",""); ;
+                string result = await _gupshupApiService.SendWhatsAppMessage(imageFile); ;
 
                 ViewBag.ResponseMessage = result;
                 ViewBag.AlertClass = "alert-success";
@@ -275,6 +275,14 @@ namespace Gupshupcampainmanager.Controllers
         public IActionResult Delete(int id)
         {
             var campaign = _campaignRepository.DeletCampainDetailsById(id);
+            TempData["ResponseMessage"] = "Campaign deleted successfully!";
+            return RedirectToAction("SavecampaignTemplate"); // Reload view
+        }
+
+        [HttpGet]
+        public IActionResult ChangeCampaignStatus(int id, bool IsActive)
+        {
+            var campaign = _campaignRepository.DeActiveCampaign(id, IsActive);
             TempData["ResponseMessage"] = "Campaign deleted successfully!";
             return RedirectToAction("SavecampaignTemplate"); // Reload view
         }

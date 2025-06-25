@@ -1,1 +1,12 @@
-[]
+[
+  {
+    "ContainingType": "Gupshupcampaignmanager.Controllers.WebhookController",
+    "Method": "ReceiveMessageStatus",
+    "RelativePath": "api/Webhook/message-status",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  }
+]

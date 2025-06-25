@@ -1,4 +1,5 @@
 ﻿using Dapper;
+using Gupshupcampaignmanager.Models.Common;
 using Gupshupcampainmanager.Models;
 using Gupshupcampainmanager.Repository.Interface;
 using Microsoft.AspNetCore.Mvc;
@@ -125,6 +126,48 @@ namespace Gupshupcampainmanager.Service
 
         }
 
+        public async Task<bool> InsertOrUpdateSmsStatusAsync(SmsStatusRequest model)
+        {
+            try
+            {
+                DynamicParameters parameters = new DynamicParameters();
+
+                parameters.Add("Type", model.Type);
+                parameters.Add("Status", model.Status);
+                parameters.Add("MessageId", model.MessageId);
+                parameters.Add("PhoneNumber", model.PhoneNumber);
+                parameters.Add("Timestamp", model.Timestamp);
+                parameters.Add("FailureReason", model.FailureReason);
+                parameters.Add("RawJson", model.RawJson);
+
+                return await _repository.GetByValuesAsync<bool>("sp_InsertOrUpdateSmsStatusLog", parameters);
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+        }
+
+
+        public async Task<bool> DeActiveCampaign(int Id, bool IsActive)
+        {
+            try
+            {
+                DynamicParameters parameters = new DynamicParameters();
+
+                parameters.Add("Id", Id);
+                parameters.Add("IsActive", IsActive);
+
+                await _repository.DeleteAsync("Sp_Change_Campaign_Status", parameters);
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+
+        }
 
     }
 }

@@ -74,13 +74,13 @@ namespace Gupshupcampainmanager.Service
             }
         }
 
-        public async Task<string> SendWhatsAppMessage(string apiKey, string source, string destination, string appName, string templateId, string imageHandleId, string offerText, string SendSMSUrl)
+        public async Task<string> SendWhatsAppMessage(IFormFile File)
         {
             if (File == null || File.Length == 0)
             {
                 return "Please upload a valid CSV file.";
             }
-            var results = new List<string>();;
+            var results = new List<string>(); ;
 
             try
             {
@@ -120,14 +120,14 @@ namespace Gupshupcampainmanager.Service
                             if (response.IsSuccessStatusCode)
                             {
                                 string responseBody = await response.Content.ReadAsStringAsync();
-                                
+
                             }
                             else
                             {
                                 return $"Error: {response.StatusCode} - {await response.Content.ReadAsStringAsync()}";
                             }
                         }
-                       
+
                     }
                 }
 
