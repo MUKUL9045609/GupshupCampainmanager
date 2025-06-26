@@ -3,12 +3,15 @@ using Gupshupcampaignmanager.Models.Common;
 using Gupshupcampainmanager.Models;
 using Gupshupcampainmanager.Repository.Interface;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
+using NLog;
 
 namespace Gupshupcampainmanager.Service
 {
     public class CampaignRepository : ICampaignRepository
     {
         private readonly IGenericRepository<CampaignDetails> _repository;
+        private static readonly Logger _Nlogger = LogManager.GetCurrentClassLogger();
         public CampaignRepository(IGenericRepository<CampaignDetails> repository)
         {
             _repository = repository;
@@ -145,6 +148,8 @@ namespace Gupshupcampainmanager.Service
             }
             catch (Exception ex)
             {
+                _Nlogger.Info("Error AT  InsertOrUpdateSmsStatusAsync " + ex.InnerException);
+
                 return false;
             }
         }
