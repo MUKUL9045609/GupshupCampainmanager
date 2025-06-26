@@ -48,7 +48,11 @@ namespace Gupshupcampaignmanager.Controllers
                 string destination = payload.GetProperty("destination").GetString();
 
                 var innerPayload = payload.GetProperty("payload");
-                string reason = innerPayload.GetProperty("reason").GetString();
+                string reason = "";
+                if (innerPayload.TryGetProperty("reason", out JsonElement reasonElement))
+                {
+                    reason = reasonElement.GetString();
+                }
 
                 var request = new SmsStatusRequest
                 {
