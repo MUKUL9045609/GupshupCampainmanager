@@ -118,7 +118,6 @@ namespace Gupshupcampaignmanager.Controllers
                 string destination = payload.GetProperty("destination").GetString();
 
                 var innerPayload = payload.GetProperty("payload");
-                int errorCode = innerPayload.GetProperty("code").GetInt32();
                 string reason = innerPayload.GetProperty("reason").GetString();
 
                 var request = new SmsStatusRequest
