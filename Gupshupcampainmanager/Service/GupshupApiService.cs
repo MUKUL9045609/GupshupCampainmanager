@@ -95,7 +95,7 @@ namespace Gupshupcampainmanager.Service
 
                     foreach (var record in records)
                     {
-                        if (!string.IsNullOrWhiteSpace(record.phone.ToString()) && !string.IsNullOrWhiteSpace(record.Name.ToString()) && !string.IsNullOrWhiteSpace(record.Description.ToString()))
+                        if (!string.IsNullOrWhiteSpace(record.phone.ToString()) && !string.IsNullOrWhiteSpace(record.Name.ToString()) )
                         {
                             var templateId = _configuration["GupshupConfiguration:templateId"];
                             var source = _configuration["GupshupConfiguration:source"];
