@@ -6,6 +6,7 @@ using Gupshupcampaignmanager.Models.Common;
 using Gupshupcampainmanager.Repository.Interface;
 using System.Text.Json.Nodes;
 using NLog;
+using Newtonsoft.Json;
 
 namespace Gupshupcampaignmanager.Controllers
 {
@@ -31,9 +32,9 @@ namespace Gupshupcampaignmanager.Controllers
 
             try
             {
-                
+
                 // Parse the JSON payload
-                var jsonObject = JsonSerializer.Deserialize<JsonObject>(body);
+                var jsonObject = System.Text.Json.JsonSerializer.Deserialize<JsonObject>(body);
 
                 // Extract relevant fields (adjust based on Gupshup's payload structure)
                 var messageId = jsonObject["messageId"]?.ToString();
@@ -87,7 +88,7 @@ namespace Gupshupcampaignmanager.Controllers
 
                 //return Ok();
             }
-            catch (JsonException ex)
+            catch (System.Text.Json.JsonException ex)
             {
                 _logger.LogError(ex, "Failed to deserialize webhook payload.");
                 return BadRequest("Invalid JSON");
@@ -97,28 +98,42 @@ namespace Gupshupcampaignmanager.Controllers
 
 
         [HttpPost("message-status")]
-        public async Task<IActionResult> ReceiveWebhook([FromBody] JsonElement payload)
+        public async Task<IActionResult> ReceiveWebhook([FromBody] JsonElement root)
         {
+
             try
             {
-                string type = payload.GetProperty("type").GetString();
-                _Nlogger.Info("json", payload);
-                _Nlogger.Info("Received webhook of type: {Type}", type);
+                string app = root.GetProperty("app").GetString();
+                string phone = root.GetProperty("phone").GetString();
+                long timestamp = root.GetProperty("timestamp").GetInt64();
 
-                switch (type)
+                DateTimeOffset dateTimeOffset = DateTimeOffset.FromUnixTimeMilliseconds(timestamp);
+                DateTime dateTime = dateTimeOffset.UtcDateTime;
+
+                string type = root.GetProperty("type").GetString();
+                var payload = root.GetProperty("payload");
+
+                string messageId = payload.GetProperty("gsId").GetString();
+                string status = payload.GetProperty("type").GetString();
+                string destination = payload.GetProperty("destination").GetString();
+
+                var innerPayload = payload.GetProperty("payload");
+                int errorCode = innerPayload.GetProperty("code").GetInt32();
+                string reason = innerPayload.GetProperty("reason").GetString();
+
+                var request = new SmsStatusRequest
                 {
-                    case "message":
-                        HandleInboundMessage(payload);
-                        break;
+                    Status = status.ToLower(),
+                    MessageId = messageId,
+                    PhoneNumber = phone,
+                    Timestamp = dateTime,
+                    FailureReason = reason
+                };
 
-                    case "message-event":
-                        HandleMessageEvent(payload);
-                        break;
+                await _campaignRepository.InsertOrUpdateSmsStatusAsync(request);
 
-                    default:
-                        _logger.LogWarning("Unhandled event type: {Type}", type);
-                        break;
-                }
+                _Nlogger.Info("json: " + JsonConvert.SerializeObject(payload));
+                _Nlogger.Info("Received webhook of type: {Type}", type);
 
                 return Ok(); // Always respond 200 to avoid retries
             }
@@ -126,37 +141,9 @@ namespace Gupshupcampaignmanager.Controllers
             {
                 _Nlogger.Info(ex, "Error processing webhook.");
                 return StatusCode(500);
+
             }
-        }
 
-        private void HandleInboundMessage(JsonElement payload)
-        {
-            var msg = payload.GetProperty("payload");
-            string messageId = msg.GetProperty("id").GetString();
-            string senderPhone = msg.GetProperty("sender").GetProperty("phone").GetString();
-            string messageType = msg.GetProperty("type").GetString();
-
-            _Nlogger.Info(
-                "Inbound message from {Phone}, type: {MessageType}, ID: {MessageId}",
-                senderPhone, messageType, messageId
-            );
-
-            // Optional: Handle message content (text, image, etc.)
-        }
-
-        private void HandleMessageEvent(JsonElement payload)
-        {
-            var evt = payload.GetProperty("payload");
-            string status = evt.GetProperty("type").GetString();       // e.g., delivered, read, failed
-            string destination = evt.GetProperty("destination").GetString(); // Receiver phone
-            string messageId = evt.GetProperty("id").GetString();
-
-            _Nlogger.Info(
-                "Message-event: {Status} for {Destination}, ID: {MessageId}",
-                status, destination, messageId
-            );
-
-            // Optional: Save to DB or update status
         }
     }
 }
