@@ -49,3 +49,7 @@ __pycache__/
 
 # Ignore Windows thumbnail cache
 Thumbs.db
+
+
+*/bin/
+*/obj/
