@@ -103,6 +103,9 @@ namespace Gupshupcampaignmanager.Controllers
 
             try
             {
+                string rawJson = root.GetRawText();
+                _Nlogger.Info("Raw JSON Received: " + rawJson);
+
                 string app = root.GetProperty("app").GetString();
                 string phone = root.GetProperty("phone").GetString();
                 long timestamp = root.GetProperty("timestamp").GetInt64();
@@ -131,6 +134,7 @@ namespace Gupshupcampaignmanager.Controllers
 
                 await _campaignRepository.InsertOrUpdateSmsStatusAsync(request);
 
+              
                 _Nlogger.Info("json: " + JsonConvert.SerializeObject(payload));
                 _Nlogger.Info("Received webhook of type: {Type}", type);
 
