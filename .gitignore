@@ -60,3 +60,6 @@ Thumbs.db
 /Gupshupcampainmanager/obj/Debug/net9.0/apphost.exe
 /.vs/ProjectEvaluation/gupshupcampainmanager.metadata.v9.bin
 /.vs/ProjectEvaluation/gupshupcampainmanager.projects.v9.bin
+/CampainWhatsappMassageSenderService/obj/Release/net9.0/CampainWhatsappMassageSenderService.AssemblyInfo.cs
+/CampainWhatsappMassageSenderService/obj/Release/net9.0/CampainWhatsappMassageSenderService.AssemblyInfoInputs.cache
+/Gupshupcampainmanager/Properties/PublishProfiles/FolderProfile.pubxml.user
