@@ -156,7 +156,9 @@ namespace Gupshupcampainmanager.Service
                 parameters.Add("Timestamp", model.Timestamp);
                 parameters.Add("FailureReason", model.FailureReason);
                 parameters.Add("RawJson", model.RawJson);
+                parameters.Add("Name", model.Name);
                 parameters.Add("Timestamp",model.Timestamp < (DateTime)System.Data.SqlTypes.SqlDateTime.MinValue ? null: model.Timestamp);
+                
 
                 return await _repository.InsertMultipleAsync("sp_InsertOrUpdateSmsStatusLog", parameters);
             }

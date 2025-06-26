@@ -128,7 +128,9 @@ namespace Gupshupcampainmanager.Service
                                 SmsStatusRequest request = new SmsStatusRequest
                                 {
                                     MessageId = apiResponse.MessageId,
-                                    Status = apiResponse.Status
+                                    Status = apiResponse.Status,
+                                    PhoneNumber = destination,
+                                    Name = record.Name
                                 };
 
                                 await _campaignRepository.InsertOrUpdateSmsStatusAsync(request);
