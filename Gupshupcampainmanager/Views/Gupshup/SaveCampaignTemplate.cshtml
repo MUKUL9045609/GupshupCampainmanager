@@ -12,7 +12,7 @@
             <div class="page-breadcrumb">
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
-                       @*  <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">E-coommerce</a></li> *@
+                        @*  <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">E-coommerce</a></li> *@
                         @* <li class="breadcrumb-item active" aria-current="page">Campaign Banner</li> *@
                     </ol>
                 </nav>
@@ -40,10 +40,10 @@
                     </div>
                     <div class="mb-3">
                         <label for="Description" class="form-label">Description</label>
-                        <input type="text" class="form-control" id="Description" name="Description" value="@ViewBag.Description" placeholder="e.g., home loan"  required />
+                        <input type="text" class="form-control" id="Description" name="Description" value="@ViewBag.Description" placeholder="e.g., home loan" required />
                         <small class="form-text text-muted">This will appear in the message body (e.g., Avail [Description] at 5%).</small>
                     </div>
-                
+
                     <div class="d-flex gap-2">
                         <button type="submit" class="btn btn-primary flex-fill">Save </button>
                         <a href="@Url.Action("SaveCampaignTemplate", "Gupshup")" class="btn btn-danger flex-fill">Cancel</a>
@@ -56,7 +56,7 @@
                     <div class="mb-3">
                         <label for="imageFile" class="form-label">Upload Image</label>
                         <input type="file" class="form-control" id="imageFile" name="imageFile" accept="image/*" required />
-                       
+
 
                         <small class="form-text text-muted">Supported formats: PNG, JPG (max 5MB).</small>
                     </div>
@@ -81,24 +81,24 @@
     </div>
 </div>
 
-    <!-- Listing Section -->
+<!-- Listing Section -->
 
-    <div class="row">
-        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-        
-            <div class="card">
-                <h3 class="card-header">Campaigns List</h3>
-                    <div class="card-body">
-                        <table class="table table-striped align-middle">
+<div class="row">
+    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+
+        <div class="card">
+            <h3 class="card-header">Campaigns List</h3>
+            <div class="card-body">
+                <table class="table table-striped align-middle">
                     <thead class="table-light">
                         <tr>
-                       
+
                             <th>#</th>
                             <th>Image</th>
                             <th>Description</th>
                             <th>Status</th>
-                                <th>Edit</th>
-                                <th>Delete</th>
+                            <th>Edit</th>
+                            <th>Delete</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -106,53 +106,73 @@
                         {
                             var item = campaignList[i];
                             <tr>
-                            
+
                                 <td>@(i + 1)</td>
                                 <td>
                                     <img src="@item.ImagePath" alt="Campaign Image" class="img-thumbnail" style="max-width: 100px;" />
                                 </td>
                                 <td>@item.Desciption</td>
                                 <td>
-                            <!-- Active Button -->
+                                    <!-- Active Button -->
                                     <a href="@Url.Action("ChangeCampaignStatus", "Gupshup", new { id = item.Id, IsActive = !item.IsActive })"
                                        class="btn btn-sm btn-outline-danger"
                                        onclick="return confirm('Are you sure you want to change the status to @(item.IsActive ? "Inactive" : "Active")?');">
                                         @(item.IsActive ? "Deactivate" : "Activate")
                                     </a>
-                                 </td>
-                   
-                              
-                                    <td>
-                                        <!-- Edit Button -->
-                                        <a href="@Url.Action("Edit", "Gupshup", new { id = item.Id })"
-                                           class="btn btn-sm btn-outline-primary">
-                                            <i class="fa-regular fa-pen-to-square"></i>
-                                        </a>
+                                </td>
 
-                                    </td>
-                                    <td>
-                                        <!-- Delete Button -->
-                                        <a href="@Url.Action("Delete", "Gupshup", new { id = item.Id })"
-                                           class="btn btn-sm btn-outline-danger"
-                                           onclick="return confirm('Are you sure you want to delete this campaign?');">
-                                            <i class="fa-solid fa-trash-can"></i>
-                                        </a>
-                                    </td>
+
+                                <td>
+                                    <!-- Edit Button -->
+                                    <a href="@Url.Action("Edit", "Gupshup", new { id = item.Id })"
+                                       class="btn btn-sm btn-outline-primary">
+                                        <i class="fa-regular fa-pen-to-square"></i>
+                                    </a>
+
+                                </td>
+                                <td>
+                                    <!-- Delete Button -->
+                                    <a href="@Url.Action("Delete", "Gupshup", new { id = item.Id })"
+                                       class="btn btn-sm btn-outline-danger"
+                                       onclick="return confirm('Are you sure you want to delete this campaign?');">
+                                        <i class="fa-solid fa-trash-can"></i>
+                                    </a>
+                                </td>
                             </tr>
                         }
                     </tbody>
                 </table>
-                    </<div>
+                </<div>
+                </div>
 
             </div>
-    
         </div>
     </div>
-       </div>
-  </div>
+</div>
 
-@section scripts{
+@section scripts {
+
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js"></script>
+
     <script>
+        $(document).ready(function () {
+            $('.table').DataTable({
+                "pageLength": 10,
+                "lengthMenu": [5, 10, 25, 50],
+                "searching": true,
+                "paging": true,
+                "ordering": true,
+                "info": true,
+                "language": {
+                    "search": "Filter records:",
+                    "lengthMenu": "Show _MENU_ entries"
+                }
+            });
+        });
+
           document.addEventListener('DOMContentLoaded', function () {
             document.querySelectorAll('.select-row').forEach(function (btn) {
                 btn.addEventListener('click', function () {
