@@ -1,16 +1,6 @@
 [
   {
     "ContainingType": "Gupshupcampaignmanager.Controllers.WebhookController",
-    "Method": "ReceiveMessageStatus",
-    "RelativePath": "api/Webhook",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "Gupshupcampaignmanager.Controllers.WebhookController",
     "Method": "ReceiveWebhook",
     "RelativePath": "api/Webhook/message-status",
     "HttpMethod": "POST",
@@ -18,7 +8,7 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "payload",
+        "Name": "root",
         "Type": "System.Text.Json.JsonElement",
         "IsRequired": true
       }
