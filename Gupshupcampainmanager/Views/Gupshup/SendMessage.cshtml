@@ -1,37 +1,65 @@
 ﻿@{
     string pageTitle = ViewData["Title"]?.ToString() ?? "Send WhatsApp Message";
+    var CampaignMessageDetail = ViewBag.CampaignMessageDetail as List<CampaignMessageDetail>;
 }
 
 
-    <style>
-        body {
-            background-color: #f8f9fa;
+<style>
+    body {
+        background-color: #f8f9fa;
+    }
+
+    .container {
+        max-width: 600px;
+        margin-top: 50px;
+    }
+
+    .card {
+        border: none;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .btn-primary {
+        background-color: #25D366;
+        border-color: #25D366;
+    }
+
+        .btn-primary:hover {
+            background-color: #1DA851;
+            border-color: #1DA851;
         }
 
-        .container {
-            max-width: 600px;
-            margin-top: 50px;
-        }
+    .alert {
+        margin-top: 20px;
+    }
 
-        .card {
-            border: none;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
+    .table-container {
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+        overflow: hidden;
+    }
 
-        .btn-primary {
-            background-color: #25D366;
-            border-color: #25D366;
-        }
+    .table-modern th {
+        background-color: #f8f9fa;
+        font-weight: 600;
+        color: #343a40;
+    }
 
-            .btn-primary:hover {
-                background-color: #1DA851;
-                border-color: #1DA851;
-            }
+    .table-modern tr:hover {
+        background-color: #f1f3f5;
+        transition: background-color 0.2s ease;
+    }
 
-        .alert {
-            margin-top: 20px;
-        }
-    </style>
+    .status-badge {
+        font-weight: 700;
+        padding: 6px 12px;
+        border-radius: 12px;
+        text-transform: uppercase;
+        font-size: 0.85rem;
+        color: white;
+    }
+
+</style>
 
 <div class="row">
     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
@@ -41,7 +69,7 @@
             <div class="page-breadcrumb">
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
-                         <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Dashboard</a></li>
+                        <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Dashboard</a></li>
                         <li class="breadcrumb-item active" aria-current="page">Send WhatsApp Message</li>
                     </ol>
                 </nav>
@@ -49,36 +77,86 @@
         </div>
     </div>
 </div>
-    <div class="row justify-content-center">
-        <div class="col-xl-8 col-lg-8 col-md-8 col-sm-12 col-12">
-            <div class="card p-4">
-        
-                <h2 class="text-center mb-4">@pageTitle</h2>
-                <form asp-controller="Gupshup" asp-action="SendMessage" method="post" enctype="multipart/form-data">
-                    <div class="mb-3">
-                        <label for="imageFile" class="form-label">Upload Image</label>
-                        <input type="file" class="form-control" id="imageFile" name="imageFile" accept="CSV" required />
-                        <small class="form-text text-muted">Supported formats: CSV (max 5MB).</small>
-                        <button type="button"
-                                onclick="window.location.href='@Url.Action("DownloadSampleFile", "Gupshup")'"
-                                style="display: flex; margin-top: 6px; background: none; border: none; color: blue; text-decoration: underline; cursor: pointer; padding: 0px; font-size: inherit;">
-                            Download Sample File
-                        </button>
-                        <br />
-                        <div class="d-flex justify-content-center">
-                            <button type="submit" class="btn btn-primary flex-fill">Save </button>
-                        </div>
-                    </div>
-                </form>
+<div class="row justify-content-center">
+    <div class="col-xl-8 col-lg-8 col-md-8 col-sm-12 col-12">
+        <div class="card p-4">
 
-                @if (ViewBag.ResponseMessage != null)
-                {
-                    <div class="alert @(ViewBag.AlertClass ?? "alert-info") mt-3" role="alert">
-                        @ViewBag.ResponseMessage
+            <h2 class="text-center mb-4">@pageTitle</h2>
+            <form asp-controller="Gupshup" asp-action="SendMessage" method="post" enctype="multipart/form-data">
+                <div class="mb-3">
+                    <label for="imageFile" class="form-label">Upload Image</label>
+                    <input type="file" class="form-control" id="imageFile" name="imageFile" accept="CSV" required />
+                    <small class="form-text text-muted">Supported formats: CSV (max 5MB).</small>
+                    <button type="button"
+                            onclick="window.location.href='@Url.Action("DownloadSampleFile", "Gupshup")'"
+                            style="display: flex; margin-top: 6px; background: none; border: none; color: blue; text-decoration: underline; cursor: pointer; padding: 0px; font-size: inherit;">
+                        Download Sample File
+                    </button>
+                    <br />
+                    <div class="d-flex justify-content-center">
+                        <button type="submit" class="btn btn-primary flex-fill">Save </button>
                     </div>
-                }
-            </div>
+                </div>
+            </form>
+
+            @if (ViewBag.ResponseMessage != null)
+            {
+                <div class="alert @(ViewBag.AlertClass ?? "alert-info") mt-3" role="alert">
+                    @ViewBag.ResponseMessage
+                </div>
+            }
         </div>
     </div>
 
-   
+    <!-- Listing Section -->
+
+    <div class="row">
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+            <div class="card">
+                <h3 class="card-header">Send Message Details</h3>
+                <div class="card-body">
+                    <table class="table table-striped align-middle">
+                        <thead class="table-light">
+                            <tr>
+                                <th>#</th>
+                                <th>Type</th>
+                                <th>Status</th>
+                                <th>Mobile No</th>
+                                <th>Time Stamp</th>
+                                <th>Message Failed Reason</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @for (int i = 0; i < CampaignMessageDetail.Count; i++)
+                            {
+                                var item = CampaignMessageDetail[i];
+                                <tr>
+                                    <td>@(i + 1)</td>
+                                    <td>@item.Type</td>
+                                    <td>
+                                        @{
+                                            var badgeClass = item.Status.ToUpper() switch
+                                            {
+                                                "READ" => "badge bg-success status-badge",
+                                                "DELIVERED" => "badge bg-primary status-badge",
+                                                "FAILED" => "badge bg-danger status-badge",
+                                                _ => "badge bg-secondary status-badge"
+                                            };
+                                        }
+                                        <span class="@badgeClass">@item.Status.ToUpper()</span>
+                                    </td>
+                                    <td>@item.PhoneNumber</td>
+                                    <td>@item.Timestamp</td>
+                                    <td>@item.FailureReason</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                    </<div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

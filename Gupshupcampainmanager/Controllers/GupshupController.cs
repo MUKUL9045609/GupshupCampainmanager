@@ -47,6 +47,8 @@ namespace Gupshupcampainmanager.Controllers
         public IActionResult SendMessage()
         {
             ViewData["Title"] = "Bulk Upload";
+            var CampaignMessageDetail = _campaignRepository.GetCampaignMessageDetail();
+            ViewBag.CampaignMessageDetail = CampaignMessageDetail.Result.ToList();
             return View();
         }
 
@@ -56,7 +58,8 @@ namespace Gupshupcampainmanager.Controllers
             try
             {
                 string result = await _gupshupApiService.SendWhatsAppMessage(imageFile);
-
+                var CampaignMessageDetail = _campaignRepository.GetCampaignMessageDetail();
+                ViewBag.CampaignMessageDetail = CampaignMessageDetail.Result.ToList();
                 ViewBag.ResponseMessage = result;
                 ViewBag.AlertClass = "alert-success";
             }

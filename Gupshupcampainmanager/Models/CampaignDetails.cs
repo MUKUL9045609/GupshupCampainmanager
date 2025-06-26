@@ -42,4 +42,14 @@
         public DateTime ModifiedOn { get; set; }
 
     }
+
+    public class CampaignMessageDetail
+    {
+        public int Id { get; set; }
+        public string Type { get; set; }
+        public string Status { get; set; }
+        public string PhoneNumber { get; set; }
+        public DateTime Timestamp { get; set; }
+        public string FailureReason { get; set; } // Nullable in database
+    }
 }
