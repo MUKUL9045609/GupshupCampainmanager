@@ -51,5 +51,6 @@
         public string PhoneNumber { get; set; }
         public DateTime Timestamp { get; set; }
         public string FailureReason { get; set; } // Nullable in database
+        public string Name { get; set; }
     }
 }
