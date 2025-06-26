@@ -7,6 +7,7 @@ using Gupshupcampainmanager.Repository.Interface;
 using System.Text.Json.Nodes;
 using NLog;
 using Newtonsoft.Json;
+using System;
 
 namespace Gupshupcampaignmanager.Controllers
 {
@@ -60,7 +61,9 @@ namespace Gupshupcampaignmanager.Controllers
                     MessageId = messageId,
                     PhoneNumber = phone,
                     Timestamp = dateTime,
-                    FailureReason = reason
+                    FailureReason = reason,
+                    Type = type,
+                    RawJson = rawJson
                 };
 
                 await _campaignRepository.InsertOrUpdateSmsStatusAsync(request);
