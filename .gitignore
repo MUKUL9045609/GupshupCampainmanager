@@ -6,7 +6,7 @@
 **/bin/
 **/obj/
 
-# Ignore debug folders
+# Ignore debug and release folders
 **/Debug/
 **/Release/
 
@@ -24,3 +24,28 @@
 
 # Ignore publish profiles with user-specific data
 *.pubxml.user
+
+# Ignore NuGet packages folder
+packages/
+
+# Ignore project-specific temporary files
+*.sdf
+*.opensdf
+*.dbmdl
+
+# Ignore test result files
+TestResults/
+
+# Ignore Node.js-related files (if applicable)
+node_modules/
+npm-debug.log
+
+# Ignore Python-related files (if applicable)
+__pycache__/
+*.pyc
+
+# Ignore macOS-specific files
+.DS_Store
+
+# Ignore Windows thumbnail cache
+Thumbs.db
