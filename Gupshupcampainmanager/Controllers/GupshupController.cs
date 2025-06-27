@@ -134,6 +134,8 @@ namespace Gupshupcampainmanager.Controllers
 
                 ViewBag.ResponseMessage = $"Image saved successfully at {relativeImagePath} and message with description '{Description}' prepared for sending.";
                 ViewBag.AlertClass = "alert-success";
+                var campaigns = _campaignRepository.GetCampainDetails();
+                ViewBag.CampaignList = campaigns.Result.ToList();
             }
             catch (Exception ex)
             {
