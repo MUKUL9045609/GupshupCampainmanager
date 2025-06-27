@@ -108,7 +108,16 @@ namespace Gupshupcampainmanager.Service
 
             return await _repository.GetListByValuesAsync<CustomerViewModel>("[sp_GetContextList]", parameters);
         }
-
+        public async Task<int> ContextListCountAsync(CustomerReqeust request)
+        {
+            DynamicParameters parameters = new DynamicParameters();
+            parameters.Add("@CustomerName", request.CustomerName);
+            parameters.Add("@MobileNo", request.MobileNo);
+            parameters.Add("@StartDate", request.StartDate);
+            parameters.Add("@EndDate", request.EndDate);
+            
+            return await _repository.GetByValuesAsync<int>("[sp_GetContextListCount]", parameters);
+        }
         public async Task<CampaignDetailsResponse> ActiveCampaign(bool IsActive)
         {
             try

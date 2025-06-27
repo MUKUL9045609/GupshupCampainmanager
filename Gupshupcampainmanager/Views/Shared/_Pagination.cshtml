@@ -1,0 +1,76 @@
+﻿@model Gupshupcampainmanager.Models.Common.PaginationModel
+
+@if (Model.TotalCount > 0)
+{
+    var totalPages = (int)Math.Ceiling((decimal)Model.TotalCount / Model.PageSize);
+    var currentPage = Model.PageNumber;
+
+    <div class="row">
+        @*  <div class="col-sm-12 col-md-5">
+                <div class="dataTables_info" id="DataTables_Table_0_info" role="status" aria-live="polite">
+                    Showing @(((currentPage - 1) * Model.PageSize) + 1)
+                    to @(Math.Min(currentPage * Model.PageSize, Model.TotalCount))
+                    of @Model.TotalCount entries
+                </div>
+            </div>
+        *@
+        <div class="col-sm-12 col-md-7">
+            <div class="d-flex justify-content-end align-items-center gap-2">
+                <label class="mb-0">
+                    Show
+                    @Html.DropDownListFor(m => m.PageSize,
+                        new SelectList(new List<int> { 5, 10, 15, 25, 30 }, Model.PageSize),
+                        new { @class = "form-control d-inline w-auto ms-2", onchange = "this.form.submit();" })
+                    entries
+                </label>
+
+                <div class="dataTables_paginate paging_simple_numbers" id="DataTables_Table_0_paginate">
+                    <ul class="pagination">
+
+                        <li class="paginate_button page-item previous @(currentPage == 1 ? "disabled" : "")" id="DataTables_Table_0_previous">
+                            <a href="#" class="page-link" data-page-number="@(currentPage - 1)" tabindex="0">Previous</a>
+                        </li>
+
+                        @* Page Numbers *@
+                        @{
+                            var pageNumbers = new List<int>();
+                            pageNumbers.Add(1);
+
+                            if (currentPage > 3)
+                                pageNumbers.Add(-1);
+
+                            for (int i = Math.Max(2, currentPage - 1); i <= Math.Min(totalPages - 1, currentPage + 1); i++)
+                                pageNumbers.Add(i);
+
+                            if (currentPage < totalPages - 2)
+                                pageNumbers.Add(-1);
+
+                            if (totalPages > 1)
+                                pageNumbers.Add(totalPages);
+                        }
+
+                        @foreach (var pages in pageNumbers)
+                        {
+                            if (pages == -1)
+                            {
+                                <li class="paginate_button page-item disabled">
+                                    <a class="page-link" href="#">...</a>
+                                </li>
+                            }
+                            else
+                            {
+                                <li class="paginate_button page-item @(currentPage == pages ? "active" : "")">
+                                    <a href="#" class="page-link" data-page-number="@pages" tabindex="0">@pages</a>
+                                </li>
+                            }
+                        }
+
+                        <li class="paginate_button page-item next @(currentPage == totalPages ? "disabled" : "")" id="DataTables_Table_0_next">
+                            <a href="#" class="page-link" data-page-number="@(currentPage + 1)" tabindex="0">Next</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+}

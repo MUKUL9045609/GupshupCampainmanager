@@ -11,7 +11,7 @@ namespace Gupshupcampainmanager.Repository.Interface
         Task<bool> DeletCampainDetailsById(int Id);
         Task<int> InsertCustomerAsync(CustomerReqeust request);
         Task<IEnumerable<CustomerViewModel>> ContextListAsync(CustomerReqeust reqeust);
-
+        Task<int> ContextListCountAsync(CustomerReqeust reqeust);
         Task<bool> DeActiveCampaign(int Id, bool IsActive);
         Task<CampaignDetailsResponse> ActiveCampaign(bool IsActive);
         Task<bool> InsertOrUpdateSmsStatusAsync(SmsStatusRequest model);
