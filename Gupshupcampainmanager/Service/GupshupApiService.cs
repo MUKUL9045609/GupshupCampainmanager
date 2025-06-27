@@ -134,6 +134,7 @@ namespace Gupshupcampainmanager.Service
                                 };
 
                                 await _campaignRepository.InsertOrUpdateSmsStatusAsync(request);
+                                await _campaignRepository.InsertCustomerDetailFromBulkUpload(request);
 
                             }
                             else

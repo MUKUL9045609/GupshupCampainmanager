@@ -45,15 +45,14 @@
                         </div>
 
                          <div class="d-flex gap-4">
-                            <a href="/Gupshup/SaveCampaignTemplate" class="btn btn-danger mr-2">Cancel</a>
                             <button type="submit" class="btn btn-primary mr-2">Save </button>
-
+                            <a href="/Gupshup/SaveCampaignTemplate" class="btn btn-danger mr-2">Cancel</a>
                         </div>
                     </form>
             }
             else
             {
-                    <form asp-controller="Gupshup" asp-action="https://buldhanabank.fortune4.org/Gupshup/SaveCampaignTemplate" method="post" enctype="multipart/form-data">
+                    <form asp-controller="Gupshup" asp-action="SaveCampaignTemplate" method="post" enctype="multipart/form-data">
                         <div class="mb-3">
                             <label for="imageFile" class="form-label">Upload Image</label>
                             <input type="file" class="form-control" id="imageFile" name="imageFile" accept="image/*" required />
@@ -66,9 +65,9 @@
                             <input type="text" class="form-control" id="Description" name="Description" placeholder="e.g., home loan" required />
                             <small class="form-text text-muted">This will appear in the message body (e.g., Avail [Description] at 5%).</small>
                         </div>
-                            <div class="d-flex gap-4">
-                        <button type="submit" class="btn btn-danger mr-2">Cancel </button>
-                        <a href="@Url.Action("SaveCampaignTemplate", "Gupshup")" class="btn btn-primary mr-2">Save</a>
+                        <div class="d-flex gap-4">
+                            <button type="submit" class="btn btn-primary mr-2">Save </button>
+                                <a href="@Url.Action("SaveCampaignTemplate", "Gupshup")" class="btn btn-danger mr-2">Cancel</a>
                         </div>
                     </form>
             }

@@ -16,6 +16,7 @@ namespace Gupshupcampainmanager.Repository.Interface
         Task<CampaignDetailsResponse> ActiveCampaign(bool IsActive);
         Task<bool> InsertOrUpdateSmsStatusAsync(SmsStatusRequest model);
         Task<IEnumerable<CampaignMessageDetail>> GetCampaignMessageDetail();
+        Task<int> InsertCustomerDetailFromBulkUpload(SmsStatusRequest model);
         Task<int> EditCustomerAsync(CustomerViewModel request);
         Task<CustomerViewModel> GetCustomerDetailByIdAsync(int Id);
         Task<bool> DeleteCustomer(int Id);
