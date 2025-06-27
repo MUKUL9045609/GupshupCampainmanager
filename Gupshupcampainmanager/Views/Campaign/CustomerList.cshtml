@@ -33,7 +33,10 @@
             <h5 class="card-header">Customer List</h5>
             <div class="card-body">
                 <div class="d-flex justify-content-end mb-2">
-                    <a href="@Url.Action("Createcampaign")" class="btn btn-primary btn-sm">
+                    <button class="btn btn-success btn-sm" onclick="exportAllFilteredToExcel('customerTable', 'Customer_List')">
+                        <i class="fa fa-file-excel-o"></i> Export
+                    </button>
+                    <a href="@Url.Action("Createcampaign")" class="btn btn-primary btn-sm ml-2">
                         <i class="fa fa-user"></i> Add
                     </a>
                 </div>
@@ -54,7 +57,7 @@
 
                         <div class="row">
                             <div class="col-sm-12">
-                                <table class="table table-striped align-middle">
+                                <table id="customerTable" class="table table-striped align-middle">
                                     <thead class="table-light">
                                         <tr>
 
@@ -87,3 +90,55 @@
     <!-- end basic table  -->
     <!-- ============================================================== -->
 </div>
+
+@section scripts {
+    <script>
+                $(document).ready(function () {
+            $('#customerTable').DataTable();
+        });
+
+        function exportAllFilteredToExcel(tableId, filename = '') {
+            var table = $('#' + tableId).DataTable();
+            var filteredRows = table.rows({ search: 'applied' }).nodes();
+
+       
+            var exportTable = $('<table></table>');
+
+            
+            exportTable.append($(table.table().header()).clone());
+
+         
+            $(filteredRows).each(function () {
+                exportTable.append($(this).clone());
+            });
+
+         
+            var now = new Date();
+            var dateString =
+                ('0' + now.getDate()).slice(-2) + '-'
+                + ('0' + (now.getMonth() + 1)).slice(-2) + '-'
+                + now.getFullYear().toString() + '_'
+                + ('0' + now.getHours()).slice(-2)
+                + ('0' + now.getMinutes()).slice(-2)
+                + ('0' + now.getSeconds()).slice(-2);
+
+            var exportFileName = (filename ? filename : "Export") + "_" + dateString + ".xlsx";
+
+           
+            var workbook = XLSX.utils.table_to_book(exportTable[0], { sheet: "Sheet1" });
+
+          
+            var ws = workbook.Sheets["Sheet1"];
+            ws['!cols'] = [
+                { wch: 6 },   
+                { wch: 20 },  
+                { wch: 20 },  
+                { wch: 30 }   
+            ];
+
+            XLSX.writeFile(workbook, exportFileName);
+        }
+
+
+    </script>
+}
