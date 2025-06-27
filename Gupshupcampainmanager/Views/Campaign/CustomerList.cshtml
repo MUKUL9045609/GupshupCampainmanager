@@ -1,5 +1,4 @@
-﻿@using Gupshupcampainmanager.Models.Common
-@model Gupshupcampainmanager.Models.customerResponse
+﻿@model Gupshupcampainmanager.Models.customerResponse
 @{
     string pageTitle = ViewData["Title"]?.ToString() ?? "Customer List";
 }
@@ -23,7 +22,7 @@
 </div>
 
 
-                        
+
 
 <div class="row">
     <!-- ============================================================== -->
@@ -31,7 +30,7 @@
     <!-- ============================================================== -->
     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
         <div class="card">
-            <h5 class="card-header">Context</h5>
+            <h5 class="card-header">Customer List</h5>
             <div class="card-body">
                 <div class="d-flex justify-content-end mb-2">
                     <a href="@Url.Action("Createcampaign")" class="btn btn-primary btn-sm">
@@ -41,18 +40,18 @@
 
                 <div class="table-responsive">
                     <div id="DataTables_Table_0_wrapper" class="dataTables_wrapper dt-bootstrap4">
-                       @*  <div class="row"><div class="col-sm-12 col-md-6"><div class="dataTables_length" id="DataTables_Table_0_length"><label>Show <select name="DataTables_Table_0_length" aria-controls="DataTables_Table_0" class="custom-select custom-select-sm form-control form-control-sm"><option value="10">10</option><option value="25">25</option><option value="50">50</option><option value="100">100</option>
-                            
-                        
+                        @*  <div class="row"><div class="col-sm-12 col-md-6"><div class="dataTables_length" id="DataTables_Table_0_length"><label>Show <select name="DataTables_Table_0_length" aria-controls="DataTables_Table_0" class="custom-select custom-select-sm form-control form-control-sm"><option value="10">10</option><option value="25">25</option><option value="50">50</option><option value="100">100</option>
+
+
                         </select> 
                         entries</label></div></div> *@
                         @* <div class="col-sm-12 col-md-6">
                             <div id="DataTables_Table_0_filter" class="dataTables_filter"><label>Search:<input type="search" class="form-control form-control-sm" placeholder="" aria-controls="DataTables_Table_0"></label></div>
                             </div>
-                            
+
                         </div> *@
-                       
-                        
+
+
                         <div class="row">
                             <div class="col-sm-12">
                                 <table class="table table-striped align-middle">
@@ -73,19 +72,6 @@
                                                 <td>@list.CustomerName</td>
                                                 <td>@list.MobileNo</td>
                                                 <td>@list.Address</td>
-                                                @*  <td><span class="label label-success">@list</span></td> *@
-
-                                                <td>
-                                                    <ul class="list-inline mb-0">
-                                                        <li class="list-inline-item">
-                                                            <a href="#" class="btn btn-sm btn-danger"><em class="fa fa-trash"></em></a>
-                                                        </li>
-                                                        <li class="list-inline-item">
-                                                            <a href="#" class="btn btn-sm btn-primary"><em class="fa fa-edit"></em></a>
-                                                        </li>
-                                                    </ul>
-                                                </td>
-
                                             </tr>
                                         }
                                     </tbody>
@@ -101,14 +87,3 @@
     <!-- end basic table  -->
     <!-- ============================================================== -->
 </div>
-
-
-
-@section Scripts {
-    <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
-    <script>
-        // $(document).ready(function () {
-        //     $('#DataTables_Table_0').DataTable();
-        // });
-    </script>
-}
