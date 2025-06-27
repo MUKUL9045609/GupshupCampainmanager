@@ -2,6 +2,15 @@
 @{
     string pageTitle = ViewData["Title"]?.ToString() ?? "Customer List";
 }
+@if (TempData["SuccessMessage"] != null)
+{
+    <div id="successAlert" class="alert alert-success alert-dismissible fade show" role="alert">
+        @TempData["SuccessMessage"]
+       
+    </div>
+
+    
+}
 
 
 <div class="row">
@@ -33,10 +42,10 @@
             <h5 class="card-header">Customer List</h5>
             <div class="card-body">
                 <div class="d-flex justify-content-end mb-2">
-                    <button class="btn btn-success btn-sm" onclick="exportAllFilteredToExcel('customerTable', 'Customer_List')">
+                    <button class="btn btn-success btn-sm" onclick="exportAllFilteredToCSV('customerTable', 'CustomerReport')">
                         <i class="fa fa-file-excel-o"></i> Export
                     </button>
-                    <a href="@Url.Action("Createcampaign")" class="btn btn-primary btn-sm ml-2">
+                    <a href="@Url.Action("AddEditCustomer")" class="btn btn-primary btn-sm ml-2">
                         <i class="fa fa-user"></i> Add
                     </a>
                 </div>
@@ -64,7 +73,8 @@
                                             <th>#</th>
                                             <th>Name</th>
                                             <th>Mobile No.</th>
-                                            <th>Address</th>
+                                           @*  <th>Address</th> *@
+                                            <th>Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -74,7 +84,20 @@
                                                 <td>@list.Id</td>
                                                 <td>@list.CustomerName</td>
                                                 <td>@list.MobileNo</td>
-                                                <td>@list.Address</td>
+                                              @*   <td>@list.Address</td> *@
+                                                <td>
+                                                    <!-- Edit Button -->
+                                                    <a href="@Url.Action("AddEditCustomer", "Campaign", new { id = list.Id })"
+                                                       class="btn btn-sm btn-outline-primary">
+                                                        <i class="fa-regular fa-pen-to-square"></i>
+                                                    </a>
+
+                                                    <button class="btn btn-sm btn-outline-danger delete-btn" data-id="@list.Id">
+                                                        <i class="fa-solid fa-trash-can"></i>
+                                                    </button>
+
+                                                </td>
+                                                
                                             </tr>
                                         }
                                     </tbody>
@@ -93,52 +116,99 @@
 
 @section scripts {
     <script>
-                $(document).ready(function () {
-            $('#customerTable').DataTable();
+          $(document).ready(function () {
+                $('#customerTable').DataTable();
+
+
+             $(document).on('click', '.delete-btn', function (e) {
+            e.preventDefault();
+
+            var button = $(this);
+            var id = button.data('id');
+
+            if (confirm('Are you sure you want to delete this Customer?')) {
+                $.ajax({
+                    url: '/Campaign/Delete', 
+                    type: 'POST',
+                    data: JSON.stringify({ id: id }),
+                    contentType: 'application/json',
+                    success: function (response) {
+                        if (response.success) {
+                            alert(response.message);
+                            button.closest('tr').remove();
+                        } else {
+                            alert('Delete failed: ' + response.message);
+                        }
+                    },
+                    error: function () {
+                        alert('An error occurred while deleting.');
+                    }
+                });
+            }
+        });
         });
 
-        function exportAllFilteredToExcel(tableId, filename = '') {
+        function exportAllFilteredToCSV(tableId, filename = '') {
             var table = $('#' + tableId).DataTable();
             var filteredRows = table.rows({ search: 'applied' }).nodes();
 
-       
-            var exportTable = $('<table></table>');
+           
+            var customHeaders = ['Sr No.', 'Name', 'Phone'];
+            var csvContent = customHeaders.join(',') + '\n';
 
-            
-            exportTable.append($(table.table().header()).clone());
+           
+            $(filteredRows).each(function (index) {
+                var rowData = [];
 
-         
-            $(filteredRows).each(function () {
-                exportTable.append($(this).clone());
+                $(this).find('td').each(function (tdIndex) {
+                    var cellText = $(this).text().trim().replace(/,/g, '');
+
+                   
+                    if (tdIndex === 2) {
+                    
+                        cellText = '\t' + cellText; 
+                    }
+
+                    rowData.push('"' + cellText + '"');
+                });
+
+                csvContent += rowData.join(',') + '\n';
             });
 
-         
+           
             var now = new Date();
             var dateString =
                 ('0' + now.getDate()).slice(-2) + '-'
                 + ('0' + (now.getMonth() + 1)).slice(-2) + '-'
-                + now.getFullYear().toString() + '_'
+                + now.getFullYear() + '_'
                 + ('0' + now.getHours()).slice(-2)
                 + ('0' + now.getMinutes()).slice(-2)
                 + ('0' + now.getSeconds()).slice(-2);
 
-            var exportFileName = (filename ? filename : "Export") + "_" + dateString + ".xlsx";
+            var exportFileName = (filename ? filename : "Export") + "_" + dateString + ".csv";
 
-           
-            var workbook = XLSX.utils.table_to_book(exportTable[0], { sheet: "Sheet1" });
-
-          
-            var ws = workbook.Sheets["Sheet1"];
-            ws['!cols'] = [
-                { wch: 6 },   
-                { wch: 20 },  
-                { wch: 20 },  
-                { wch: 30 }   
-            ];
-
-            XLSX.writeFile(workbook, exportFileName);
+            
+            var blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+            var link = document.createElement("a");
+            var url = URL.createObjectURL(blob);
+            link.setAttribute("href", url);
+            link.setAttribute("download", exportFileName);
+            link.style.visibility = 'hidden';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
         }
 
-
+        setTimeout(function () {
+            var alertElement = document.getElementById('successAlert');
+            if (alertElement) {
+                
+                alertElement.classList.remove('show');
+                alertElement.classList.add('fade');
+                setTimeout(function () {
+                    alertElement.remove();
+                }, 100);
+            }
+        }, 2000);
     </script>
 }

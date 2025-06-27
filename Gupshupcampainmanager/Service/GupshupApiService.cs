@@ -194,11 +194,11 @@ namespace Gupshupcampainmanager.Service
                     {
                         CustomerName = rowDict.ContainsKey("CustomerName") ? rowDict["CustomerName"] : "",
                         MobileNo = rowDict.ContainsKey("MobileNo") ? rowDict["MobileNo"] : "",
-                        Address = rowDict.ContainsKey("Address") ? rowDict["Address"] : ""
+                        //Address = rowDict.ContainsKey("Address") ? rowDict["Address"] : ""
                     };
 
                    
-                    await _campaignRepository.InsertCustomerAsync(customerRequest);
+                   // await _campaignRepository.InsertCustomerAsync(customerRequest);
                     result.Add(rowDict);
 
                 }

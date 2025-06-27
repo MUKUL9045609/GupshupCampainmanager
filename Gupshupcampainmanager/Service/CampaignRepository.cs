@@ -88,7 +88,7 @@ namespace Gupshupcampainmanager.Service
 
                 parameters.Add("Id", Id);
 
-                 await _repository.DeleteAsync("Sp_Delete_CampaignDetails_ById", parameters);
+                await _repository.DeleteAsync("Sp_Delete_CampaignDetails_ById", parameters);
 
                 return true;
             }
@@ -99,15 +99,16 @@ namespace Gupshupcampainmanager.Service
 
         }
 
-        public async Task<int> InsertCustomerAsync(CustomerReqeust request)
+        public async Task<int> InsertCustomerAsync(CustomerViewModel request)
         {
             DynamicParameters parameters = new DynamicParameters();
 
-            parameters.Add("@CustomerName",request.CustomerName);
+            parameters.Add("@Id", request.Id);
+            parameters.Add("@CustomerName", request.CustomerName);
             parameters.Add("@MobileNo", request.MobileNo);
-            parameters.Add("@address",request.Address);
+            //parameters.Add("@address", request.Address);
 
-            return await _repository.InsertUpdateAsync("[sp_Insert_Customerdetails]", parameters);
+            return await _repository.InsertUpdateAsync("[sp_Insert_Update_Customerdetails]", parameters);
 
         }
 
@@ -132,7 +133,7 @@ namespace Gupshupcampainmanager.Service
             parameters.Add("@MobileNo", request.MobileNo);
             parameters.Add("@StartDate", request.StartDate);
             parameters.Add("@EndDate", request.EndDate);
-            
+
             return await _repository.GetByValuesAsync<int>("[sp_GetContextListCount]", parameters);
         }
         public async Task<CampaignDetailsResponse> ActiveCampaign(bool IsActive)
@@ -166,8 +167,8 @@ namespace Gupshupcampainmanager.Service
                 parameters.Add("FailureReason", model.FailureReason);
                 parameters.Add("RawJson", model.RawJson);
                 parameters.Add("Name", model.Name);
-                parameters.Add("Timestamp",model.Timestamp < (DateTime)System.Data.SqlTypes.SqlDateTime.MinValue ? null: model.Timestamp);
-                
+                parameters.Add("Timestamp", model.Timestamp < (DateTime)System.Data.SqlTypes.SqlDateTime.MinValue ? null : model.Timestamp);
+
 
                 return await _repository.InsertMultipleAsync("sp_InsertOrUpdateSmsStatusLog", parameters);
             }
@@ -200,5 +201,58 @@ namespace Gupshupcampainmanager.Service
 
         }
 
+        public async Task<int> EditCustomerAsync(CustomerViewModel request)
+        {
+            try
+            {
+                DynamicParameters parameters = new DynamicParameters();
+
+                parameters.Add("@Id", request.Id);
+                parameters.Add("@CustomerName", request.CustomerName);
+                parameters.Add("@MobileNo", request.MobileNo);
+                //parameters.Add("@address", request.Address);
+
+
+                return _repository.GetByValuesAsync<int>("[sp_Insert_Update_Customerdetails]", parameters).Result;
+            }
+            catch (Exception)
+            {
+
+                return 0;
+            }
+
+
+        }
+
+        public async Task<CustomerViewModel> GetCustomerDetailByIdAsync(int Id)
+        {
+            try
+            {
+                DynamicParameters parameters = new DynamicParameters();
+                parameters.Add("Id", Id);
+                return await _repository.GetByValuesAsync<CustomerViewModel>("sp_Get_CustomerDetails_ById", parameters);
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+
+        }
+
+        public async Task<bool> DeleteCustomer(int Id)
+        {
+            try
+            {
+                DynamicParameters parameters = new DynamicParameters();
+                parameters.Add("Id", Id);
+               return await _repository.DeleteAsync("sp_Delete_CustomerDetails_ById", parameters);
+            }
+            catch (Exception)
+            {
+
+                return false;
+            }
+        
+        }
     }
 }

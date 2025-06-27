@@ -6,7 +6,7 @@
     string buttonText = isEdit ? "Update" : "Save";
 }
 
- 
+
             <div class="row">
                 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                     <div class="page-header">
@@ -28,32 +28,35 @@
         <div class="card p-4">
             <h2 class="text-center mb-4">@pageTitle</h2>
 
-            <form asp-controller="Campaign" asp-action="@formAction" method="post">
+            <form asp-controller="Campaign" asp-action="AddEditCustomer" method="post">
+                @Html.AntiForgeryToken()
 
                 @* Hidden field for ID in Edit mode *@
                 @if (isEdit)
                 {
-                    <input type="hidden" name="Id" value="@Model.Id" />
+                        <input type="hidden" name="Id" value="@Model.Id" />
                 }
 
                 <div class="mb-3">
-                    <label for="Name" class="form-label">Name</label>
-                    <input type="text" class="form-control" id="Name" name="Name" value="@Model?.CustomerName" required />
+                    <label for="CustomerName" class="form-label">Customer Name</label>
+                    <input type="text" class="form-control" id="Name" name="CustomerName" value="@Model?.CustomerName" required />
                 </div>
 
                 <div class="mb-3">
                     <label for="MobileNo" class="form-label">Mobile Number</label>
-                    <input type="text" class="form-control" id="MobileNo" name="MobileNo" value="@Model?.MobileNo" required pattern="\d{10}" maxlength="10" />
-                </div>
+                    <input type="tel" class="form-control" id="MobileNo" name="MobileNo" value="@Model?.MobileNo" required pattern="\d{10}" maxlength="10" />
+                    <span asp-validation-for="MobileNo" class="text-danger"></span>
 
+                </div>
+                @* <input type="hidden" name="Address" value="@Model?.Address" /> *@
                 <button type="submit" class="btn btn-primary w-100">@buttonText</button>
             </form>
 
             @if (ViewBag.ResponseMessage != null)
             {
-                <div class="alert @(ViewBag.AlertClass ?? "alert-info") mt-3" role="alert">
+                    <div class="alert @(ViewBag.AlertClass ?? "alert-info") mt-3" role="alert">
                     @ViewBag.ResponseMessage
-                </div>
+                    </div>
             }
         </div>
     </div>

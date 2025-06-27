@@ -2,9 +2,10 @@
 {
     public class CustomerReqeust
     {
+        public int Id { get; set; }
         public string CustomerName { get; set; }
         public string MobileNo { get; set; }
-        public string Address { get; set; }
+        //public string Address { get; set; }
         public DateTime? StartDate { get; set; }
         public DateTime? EndDate { get; set; }
         public int PageNumber { get; set; } = 1;
@@ -17,7 +18,7 @@
         public int Id { get; set; }
         public string CustomerName { get; set; }
         public string MobileNo { get; set; }
-        public string Address { get; set; }
+      ///  public string Address { get; set; }
     }
     public class customerResponse
     {
