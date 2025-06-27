@@ -179,6 +179,27 @@ namespace Gupshupcampainmanager.Service
             }
         }
 
+        public async Task<int> InsertCustomerDetailFromBulkUpload(SmsStatusRequest model)
+        {
+            try
+            {
+                DynamicParameters parameters = new DynamicParameters();
+
+                
+                parameters.Add("MobileNo", model.PhoneNumber);
+                parameters.Add("Name", model.Name);
+                
+
+                return await _repository.GetByValuesAsync<int>("sp_Insert_CustomerDetailFromBulkUpload", parameters);
+            }
+            catch (Exception ex)
+            {
+                _Nlogger.Info("Error AT  InsertOrUpdateSmsStatusAsync " + ex.InnerException);
+
+                return 0;
+            }
+        }
+
 
         public async Task<bool> DeActiveCampaign(int Id, bool IsActive)
         {
