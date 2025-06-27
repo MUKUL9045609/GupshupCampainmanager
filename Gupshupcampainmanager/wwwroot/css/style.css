@@ -6976,3 +6976,13 @@ Media Query
 
 /* Custom, iPhone Retina */
 @media only screen and (max-width:320px) {}
+
+body {
+    font-family: 'Circular Std Book' !important;
+    font-style: normal !important;
+    font-weight: normal !important;
+    font-size: 14px !important;
+    color: #71748d !important;
+    background-color: #efeff6 !important;
+    -webkit-font-smoothing: antialiased !important;
+}
