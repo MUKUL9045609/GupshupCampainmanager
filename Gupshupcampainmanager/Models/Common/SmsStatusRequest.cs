@@ -9,5 +9,7 @@
         public DateTime Timestamp { get; set; }
         public string FailureReason { get; set; }
         public string RawJson { get; set; }
+
+        public string Name { get; set; }
     }
 }

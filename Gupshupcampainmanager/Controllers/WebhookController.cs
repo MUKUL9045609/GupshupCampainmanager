@@ -4,6 +4,10 @@ using System.Text.Json;
 using Microsoft.Extensions.Logging;
 using Gupshupcampaignmanager.Models.Common;
 using Gupshupcampainmanager.Repository.Interface;
+using System.Text.Json.Nodes;
+using NLog;
+using Newtonsoft.Json;
+using System;
 
 namespace Gupshupcampaignmanager.Controllers
 {
@@ -13,6 +17,7 @@ namespace Gupshupcampaignmanager.Controllers
     {
         private readonly ILogger<WebhookController> _logger;
         private readonly ICampaignRepository _campaignRepository;
+        private static readonly Logger _Nlogger = LogManager.GetCurrentClassLogger();
 
         public WebhookController(ILogger<WebhookController> logger, ICampaignRepository campaignRepository)
         {
@@ -21,39 +26,60 @@ namespace Gupshupcampaignmanager.Controllers
         }
 
         [HttpPost("message-status")]
-        public async Task<IActionResult> ReceiveMessageStatus()
+        public async Task<IActionResult> ReceiveWebhook([FromBody] JsonElement root)
         {
-            using var reader = new StreamReader(Request.Body);
-            var body = await reader.ReadToEndAsync();
 
             try
             {
-                var messageStatus = JsonSerializer.Deserialize<SmsStatusWebhookPayload>(body);
-                if (messageStatus == null)
+                string rawJson = root.GetRawText();
+                _Nlogger.Info("Raw JSON Received: " + rawJson);
+
+                string app = root.GetProperty("app").GetString();
+                string phone = root.GetProperty("phone").GetString();
+                long timestamp = root.GetProperty("timestamp").GetInt64();
+
+                DateTimeOffset dateTimeOffset = DateTimeOffset.FromUnixTimeMilliseconds(timestamp);
+                DateTime dateTime = dateTimeOffset.UtcDateTime;
+
+                string type = root.GetProperty("type").GetString();
+                var payload = root.GetProperty("payload");
+
+                string messageId = payload.GetProperty("gsId").GetString();
+                string status = payload.GetProperty("type").GetString();
+                string destination = payload.GetProperty("destination").GetString();
+
+                var innerPayload = payload.GetProperty("payload");
+                string reason = "";
+                if (innerPayload.TryGetProperty("reason", out JsonElement reasonElement))
                 {
-                    _logger.LogWarning("Webhook payload deserialization returned null.");
-                    return BadRequest();
+                    reason = reasonElement.GetString();
                 }
 
-                _logger.LogInformation("Received SMS status update: {@Payload}", messageStatus);
+                var request = new SmsStatusRequest
+                {
+                    Status = status.ToLower(),
+                    MessageId = messageId,
+                    PhoneNumber = phone,
+                    Timestamp = dateTime,
+                    FailureReason = reason,
+                    Type = type,
+                    RawJson = rawJson
+                };
 
-                SmsStatusRequest request = new SmsStatusRequest();
+                await _campaignRepository.InsertOrUpdateSmsStatusAsync(request);
 
-                request.Status = messageStatus.Status?.ToLower();
-                request.MessageId = messageStatus.MessageId;
-                request.PhoneNumber = messageStatus.PhoneNumber;
-                request.Timestamp = DateTime.Parse(messageStatus.Timestamp);
-                request.FailureReason = messageStatus.FailureReason;
-
-                await _campaignRepository.InsertOrUpdateSmsStatusAsync(request); 
+                _Nlogger.Info("json: " + JsonConvert.SerializeObject(payload));
+                _Nlogger.Info("Received webhook of type: {Type}", type);
 
                 return Ok();
             }
-            catch (JsonException ex)
+            catch (Exception ex)
             {
-                _logger.LogError(ex, "Failed to deserialize webhook payload.");
-                return BadRequest("Invalid JSON");
+                _Nlogger.Info(ex, "Error processing webhook.");
+                return StatusCode(500);
+
             }
+
         }
     }
 }

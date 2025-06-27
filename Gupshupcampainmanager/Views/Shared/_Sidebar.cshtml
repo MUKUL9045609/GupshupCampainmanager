@@ -18,31 +18,10 @@
                         </li>
                         <li class="nav-item ">
                             <a class="nav-link active" href="#" data-bs-toggle="collapse" aria-expanded="false" data-bs-target="#submenu-1" aria-controls="submenu-1"><i class="fa fa-fw fa-user-circle"></i>Dashboard <span class="badge badge-success">6</span></a>
-                                <div id="submenu-1" class="collapse submenu @(currentController == "Campaign" || currentController == "Gupshup" ? "show" : "")">
-
+                            <div id="submenu-1" class="collapse submenu @(currentController == "Campaign" || currentController == "Gupshup" ? "show" : "")">
                                 <ul class="nav flex-column">
-                                  @*   <li class="nav-item">
-                                        <a class="nav-link" href="index.html" data-toggle="collapse" aria-expanded="false" data-target="#submenu-1-2" aria-controls="submenu-1-2">E-Commerce</a>
-                                        <div id="submenu-1-2" class="collapse submenu" style="">
-                                            <ul class="nav flex-column">
-                                                @* <li class="nav-item">
-                                                    <a class="nav-link" href="../index.html">E Commerce Dashboard</a>
-                                                </li>
-                                            
-                                                <li class="nav-item">
-                                                    <a class="nav-link" href="../ecommerce-product-single.html">Product Single</a>
-                                                </li>
-                                                <li class="nav-item">
-                                                    <a class="nav-link" href="../ecommerce-product-checkout.html">Product Checkout</a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </li> *@
                                     <li class="nav-item @(currentController == "Campaign" && currentAction == "CustomerList" ? "active" : "")">
                                         @Html.ActionLink("Customer List", "CustomerList", "Campaign", null, new { @class = "nav-link" })
-                                    </li>
-                                    <li class="nav-item @(currentController == "Gupshup" && currentAction == "CreateTemplate" ? "active" : "")">
-                                        @Html.ActionLink("Create Template", "CreateTemplate", "Gupshup", null, new { @class = "nav-link" })
                                     </li>
                                     <li class="nav-item @(currentController == "Gupshup" && currentAction == "SendMessage" ? "active" : "")">
                                         @Html.ActionLink("Send Message", "SendMessage", "Gupshup", null, new { @class = "nav-link" })
@@ -50,100 +29,10 @@
                                     <li class="nav-item @(currentController == "Gupshup" && currentAction == "SaveCampaignTemplate" ? "active" : "")">
                                         @Html.ActionLink("Create Campaign", "SaveCampaignTemplate", "Gupshup", null, new { @class = "nav-link" })
                                     </li>
+                                </ul>
+                            </div>
+                        </li>
 
-                                   @*  <li class="nav-item">
-                                        <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-1-1" aria-controls="submenu-1-1">Infulencer</a>
-                                        <div id="submenu-1-1" class="collapse submenu" style="">
-                                            <ul class="nav flex-column">
-                                              
-                                                <li class="nav-item">
-                                                    <a class="nav-link" href="../influencer-finder.html">Influencer Finder</a>
-                                                </li>
-                                                <li class="nav-item">
-                                                    <a class="nav-link" href="../influencer-profile.html">Influencer Profile</a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </li> *@
-                                </ul>
-                            </div>
-                        </li>
-                       
-                       @*  <li class="nav-divider">
-                            Features
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-6" aria-controls="submenu-6"><i class="fas fa-fw fa-file"></i>Pages</a>
-                            <div id="submenu-6" class="collapse submenu" style="">
-                                <ul class="nav flex-column">
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="invoice.html">Invoice</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="blank-page.html">Blank Page</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="blank-page-header.html">Blank Page Header</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="login.html">Login</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="404-page.html">404 page</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="sign-up.html">Sign up Page</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="forgot-password.html">Forgot Password</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="pricing.html">Pricing Tables</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="timeline.html">Timeline</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="calendar.html">Calendar</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="sortable-nestable-lists.html">Sortable/Nestable List</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="widgets.html">Widgets</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="media-object.html">Media Objects</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="cropper-image.html">Cropper</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="color-picker.html">Color Picker</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-7" aria-controls="submenu-7"><i class="fas fa-fw fa-inbox"></i>Apps <span class="badge badge-secondary">New</span></a>
-                            <div id="submenu-7" class="collapse submenu" style="">
-                                <ul class="nav flex-column">
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="inbox.html">Inbox</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="email-details.html">Email Detail</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="email-compose.html">Email Compose</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="message-chat.html">Message Chat</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>
-                         *@
                     </ul>
                 </div>
             </nav>

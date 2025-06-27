@@ -4,8 +4,11 @@ using Gupshupcampainmanager.Persistence;
 using Gupshupcampainmanager.Repository.Interface;
 using Gupshupcampainmanager.Service;
 using Microsoft.AspNetCore.Authorization;
+using NLog.Extensions.Logging;
+using NLog.Web;
 
 var builder = WebApplication.CreateBuilder(args);
+var logger = NLogBuilder.ConfigureNLog("nlog.config").GetCurrentClassLogger();
 
 builder.Services.AddSession(options =>
 {
@@ -25,6 +28,13 @@ builder.Services.AddAuthentication("Cookie")
         options.SlidingExpiration = false;
 
     });
+
+builder.Services.AddLogging(loggingBuilder =>
+{
+    loggingBuilder.ClearProviders();
+    loggingBuilder.AddNLog();
+});
+
 
 builder.Services.AddAuthorization(options =>
 {
@@ -76,7 +86,7 @@ app.MapStaticAssets();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Gupshup}/{action=SaveCampaignTemplate}")
+    pattern: "{controller=Auth}/{action=Login}")
     .WithStaticAssets();
 
 

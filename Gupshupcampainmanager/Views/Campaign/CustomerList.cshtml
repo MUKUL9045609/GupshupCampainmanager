@@ -55,37 +55,25 @@
                         
                         <div class="row">
                             <div class="col-sm-12">
-                                <table class="table table-striped table-bordered first dataTable" id="DataTables_Table_0" role="grid" aria-describedby="DataTables_Table_0_info">
-                                    <thead>
-                                        <tr role="row">
-                                            <th class="sorting_asc" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 148.969px;">Id</th>
-                                            
-                                            <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width: 253.047px;">User</th>
+                                <table class="table table-striped align-middle">
+                                    <thead class="table-light">
+                                        <tr>
 
-                                            <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending" style="width: 105.344px;">Mobile No</th>
-
-                                            <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Age: activate to sort column ascending" style="width: 49.25px;">Address</th>
-
-                                            @* <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Start date: activate to sort column ascending" style="width: 100.672px;">Status</th>
- *@                                         
-                                            <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Salary: activate to sort column ascending" style="width: 82.7188px;">Action</th>
-
-</tr>
+                                            <th>#</th>
+                                            <th>Name</th>
+                                            <th>Mobile No.</th>
+                                            <th>Address</th>
+                                        </tr>
                                     </thead>
                                     <tbody>
                                         @foreach (var list in Model.Customers)
                                         {
-                                            <tr role="row" class="odd">
+                                            <tr>
                                                 <td>@list.Id</td>
-                                                <td class="sorting_1">
-                                                    <div class="user_icon">
-                                                        <img src="images/img1.jpg" alt="">
-                                                    </div>
-                                                    @list.CustomerName
-                                                </td>
+                                                <td>@list.CustomerName</td>
                                                 <td>@list.MobileNo</td>
                                                 <td>@list.Address</td>
-                                                @*<td><span class="label label-success">@list</span></td> *@
+                                                @*  <td><span class="label label-success">@list</span></td> *@
 
                                                 <td>
                                                     <ul class="list-inline mb-0">
@@ -100,17 +88,10 @@
 
                                             </tr>
                                         }
-                                      
                                     </tbody>
-                                   
                                 </table>
                             </div>
                         </div>
-                        <partial name="_Pagination" model="new PaginationModel { PageNumber = Model.PageNumber, PageSize = Model.PageSize, TotalCount = Model.TotalCount }" />
-                       @*  @Html.Partial("_Pagination"); *@
-
-
-                        
                     </div>
                 </div>
             </div>

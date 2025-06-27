@@ -6,7 +6,7 @@
 **/bin/
 **/obj/
 
-# Ignore debug folders
+# Ignore debug and release folders
 **/Debug/
 **/Release/
 
@@ -24,3 +24,42 @@
 
 # Ignore publish profiles with user-specific data
 *.pubxml.user
+
+# Ignore NuGet packages folder
+packages/
+
+# Ignore project-specific temporary files
+*.sdf
+*.opensdf
+*.dbmdl
+
+# Ignore test result files
+TestResults/
+
+# Ignore Node.js-related files (if applicable)
+node_modules/
+npm-debug.log
+
+# Ignore Python-related files (if applicable)
+__pycache__/
+*.pyc
+
+# Ignore macOS-specific files
+.DS_Store
+
+# Ignore Windows thumbnail cache
+Thumbs.db
+
+
+*/bin/
+*/obj/
+/Gupshupcampainmanager/obj/Debug/net9.0/Gupshupcampainmanager.assets.cache
+/CampainWhatsappMassageSenderService/obj/Debug/net9.0/CampainWhatsappMassageSenderService.csproj.FileListAbsolute.txt
+/Gupshupcampainmanager/obj/Debug/net9.0/Gupshupcampainmanager.csproj.FileListAbsolute.txt
+/CampainWhatsappMassageSenderService/obj/Debug/net9.0/apphost.exe
+/Gupshupcampainmanager/obj/Debug/net9.0/apphost.exe
+/.vs/ProjectEvaluation/gupshupcampainmanager.metadata.v9.bin
+/.vs/ProjectEvaluation/gupshupcampainmanager.projects.v9.bin
+/CampainWhatsappMassageSenderService/obj/Release/net9.0/CampainWhatsappMassageSenderService.AssemblyInfo.cs
+/CampainWhatsappMassageSenderService/obj/Release/net9.0/CampainWhatsappMassageSenderService.AssemblyInfoInputs.cache
+/Gupshupcampainmanager/Properties/PublishProfiles/FolderProfile.pubxml.user
