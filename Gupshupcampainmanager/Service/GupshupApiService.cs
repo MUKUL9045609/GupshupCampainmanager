@@ -95,14 +95,14 @@ namespace Gupshupcampainmanager.Service
 
                     foreach (var record in records)
                     {
-                        if (!string.IsNullOrWhiteSpace(record.phone.ToString()) && !string.IsNullOrWhiteSpace(record.Name.ToString()) )
+                        if (!string.IsNullOrWhiteSpace(record.Phone.ToString()) && !string.IsNullOrWhiteSpace(record.Name.ToString()) )
                         {
                             var templateId = _configuration["GupshupConfiguration:templateId"];
                             var source = _configuration["GupshupConfiguration:source"];
                             var appName = _configuration["GupshupConfiguration:appName"];
                             var apiKey = _configuration["GupshupConfiguration:apiKey"];
                             var SendSMSUrl = _configuration["GupshupConfiguration:SendSMSUrl"];
-                            var destination = record.phone.ToString();
+                            var destination = record.Phone.ToString();
 
                             client.DefaultRequestHeaders.Clear();
                             client.DefaultRequestHeaders.Add("apikey", apiKey);
@@ -110,7 +110,7 @@ namespace Gupshupcampainmanager.Service
                             {
                             { "channel", "whatsapp" },
                             { "source", source },
-                            { "destination", destination },
+                            { "destination", "91" + destination },
                             { "src.name", appName },
                             { "template", "{\"id\":\"" + templateId + "\",\"params\":[\"" + record.Name + "\", \"" + result.Desciption + "\"]}" },
                             { "message", "{\"image\":{\"link\":\"" + result.ImagePath + "\"},\"type\":\"image\"}" }

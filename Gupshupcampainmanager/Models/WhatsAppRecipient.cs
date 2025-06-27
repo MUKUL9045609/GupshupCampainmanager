@@ -5,7 +5,7 @@ namespace Gupshupcampaignmanager.Models
 {
     public class WhatsAppRecipient
     {
-        public long? phone { get; set; }
+        public long? Phone { get; set; }
         public string Name { get; set; }
     }
     public class WhatsAppRecipientMap : ClassMap<WhatsAppRecipient>
@@ -13,7 +13,7 @@ namespace Gupshupcampaignmanager.Models
         public WhatsAppRecipientMap()
         {
             Map(m => m.Name);
-            Map(m => m.phone).TypeConverter<PhoneNumberConverter>(); // Apply custom converter here
+            Map(m => m.Phone).TypeConverter<PhoneNumberConverter>(); // Apply custom converter here
         }
     }
 }
