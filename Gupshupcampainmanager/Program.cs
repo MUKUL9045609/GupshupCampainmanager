@@ -86,7 +86,7 @@ app.MapStaticAssets();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Gupshup}/{action=SaveCampaignTemplate}")
+    pattern: "{controller=Auth}/{action=Login}")
     .WithStaticAssets();
 
 
