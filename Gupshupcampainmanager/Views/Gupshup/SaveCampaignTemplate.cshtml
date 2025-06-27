@@ -151,29 +151,8 @@
 </div>
 
 @section scripts {
-
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css" />
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js"></script>
-
-    <script>
-        $(document).ready(function () {
-            $('.table').DataTable({
-                "pageLength": 10,
-                "lengthMenu": [5, 10, 25, 50],
-                "searching": true,
-                "paging": true,
-                "ordering": true,
-                "info": true,
-                "language": {
-                    "search": "Filter records:",
-                    "lengthMenu": "Show _MENU_ entries"
-                }
-            });
-        });
-
-          document.addEventListener('DOMContentLoaded', function () {
+<script>
+        document.addEventListener('DOMContentLoaded', function () {
             document.querySelectorAll('.select-row').forEach(function (btn) {
                 btn.addEventListener('click', function () {
                     const imagePath = this.getAttribute('data-image');
