@@ -6986,3 +6986,8 @@ body {
     background-color: #efeff6 !important;
     -webkit-font-smoothing: antialiased !important;
 }
+
+
+.navbar-light .navbar-nav .active > .nav-link{
+    color: #5969ff !important;
+}
