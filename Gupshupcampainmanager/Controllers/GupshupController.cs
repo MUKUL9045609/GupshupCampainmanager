@@ -27,23 +27,6 @@ namespace Gupshupcampainmanager.Controllers
             return View();
         }
 
-        [HttpGet]
-        public ActionResult CreateTemplate()
-        {
-            return View();
-        }
-
-        [HttpPost]
-        public async Task<ActionResult> CreateTemplate(GupshupTemplateModel model)
-        {
-            if (ModelState.IsValid)
-            {
-                //var result = await _apiService.CreateTemplate(model);
-                ViewBag.Response = null;
-            }
-            return View();
-        }
-
         public IActionResult SendMessage()
         {
             ViewData["Title"] = "Bulk Upload";
