@@ -21,7 +21,7 @@
                             <div id="submenu-1" class="collapse submenu @(currentController == "Campaign" || currentController == "Gupshup" ? "show" : "")">
                                 <ul class="nav flex-column">
                                     <li class="nav-item @(currentController == "Campaign" && currentAction == "CustomerList" ? "active" : "")">
-                                        @Html.ActionLink("Customer List", "CustomerList", "Campaign", null, new { @class = "nav-link" })
+                                        @Html.ActionLink("Customer Details", "CustomerList", "Campaign", null, new { @class = "nav-link" })
                                     </li>
                                     <li class="nav-item @(currentController == "Gupshup" && currentAction == "SendMessage" ? "active" : "")">
                                         @Html.ActionLink("Send Message", "SendMessage", "Gupshup", null, new { @class = "nav-link" })
