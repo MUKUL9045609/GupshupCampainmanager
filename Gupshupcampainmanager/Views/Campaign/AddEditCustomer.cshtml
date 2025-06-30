@@ -49,7 +49,8 @@
 
                 </div>
                 @* <input type="hidden" name="Address" value="@Model?.Address" /> *@
-                <button type="submit" class="btn btn-primary w-100">@buttonText</button>
+                <button type="submit" class="btn btn-primary mr-2">@buttonText</button>
+                <a href="@Url.Action("CustomerList", "Campaign")" class="btn btn-danger mr-2">Cancel</a>
             </form>
 
             @if (ViewBag.ResponseMessage != null)
